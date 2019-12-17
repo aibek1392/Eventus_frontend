@@ -19,7 +19,7 @@ import { Button } from 'react-bootstrap'
          variant="outline-danger">
          Press here to go back , you are lost
         </Button>
-        <iframe src="https://giphy.com/embed/yZgHsSVnzIjew" width="480" height="356" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <iframe src="https://giphy.com/embed/yZgHsSVnzIjew" width="800" height="356" title="221" frameBorder="4" class="giphy-embed" allowFullScreen></iframe>
         </div>
         </>
     )

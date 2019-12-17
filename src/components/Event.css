@@ -1,11 +1,11 @@
 .item_filters {
-    background-image: radial-gradient(rgb(255, 255, 255, 1),  rgb(255, 253, 247, 1) );
+  background-image: radial-gradient(rgb(158, 83, 83),  rgb(255, 253, 247, 1) );
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
-  align-content: flex-end;
+  align-content: flex-start;
   padding: 10px;
   margin: 2.5px;
 }
@@ -23,8 +23,14 @@
   align-content: flex-start;
   padding: 10px;
   margin: 2.5px;
+  
 }
 
+.drop_down {
+    width: 20px;
+ overflow: hidden;
+ border: 1px dotted black;
+}
 .item_card h1 {
 	text-align: center;
 	font-size: 10pt;
