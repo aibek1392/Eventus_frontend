@@ -61,6 +61,7 @@ export default class EventContainer extends Component {
                 <SearchBar stateChangeFilter={this.stateChangeFilter}
                 term={this.state.showFilteredEvents}
                events={this.state.events} />
+             
             <EventList 
             addToFavorites={this.props.addToFavorites}
             events={this.whichEventsToRender()} />

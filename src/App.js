@@ -52,9 +52,8 @@ export default class App extends React.Component {
 
   addToFavorites = (event) => {
     const match = this.state.favoriteEvents.find(joiner => joiner.event.id === event.id)
-    // debugger
     if(!match){
-  fetch("http://localhost:3001/favorite_events", {
+    fetch("http://localhost:3001/favorite_events", {
         headers: {
           "Content-Type": "application/json"
         },
@@ -77,20 +76,7 @@ export default class App extends React.Component {
   }
 
 
-  componentDidMount(){
-    console.log("hello")
-    fetch("http://localhost:3001/favorite_events")
-    .then(r => r.json())
-    .then(res => {
-
-      const arr = res.filter(event =>  { 
-       return event.user.id  === parseInt(this.state.loggedInUserId)
-      })
-   
-      this.setFavoriteEvents(arr)
-      
-    })
-  }
+ 
 
 
   setFavoriteEvents = (arr) => {
@@ -123,35 +109,35 @@ export default class App extends React.Component {
         user_id: this.state.loggedInUserId
       })
     })
-      // .then(r=>r.json())
-      // .then( createdEvent=> {
-      //     this.setState({
-      //       events: [...this.state.events, createdEvent]
-      //     })
-      // } )
+    // .then(r=>r.json())
+    // .then( createdEvent=> {
+    //     this.setState({
+    //       events: [...this.state.events, createdEvent]
+    //     })
+    // } )
 
 
   }
 
   
   render(){
-  
+  // console.log(this.state.favoriteEvents)
     return (
     <div>
       <Header logOut={ this.logOut } token={this.state.token} />
       <Switch>
-      {this.state.token ? null : <Redirect from='/events' to='/' />} 
-      {this.state.token ? null : <Redirect from='/profile' to='/' />} 
+      {/* {this.state.token ? null : <Redirect from='/profile' to='/' />}  */}
 
         <Route exact path={'/'} render={(props) => <LoginForm {...props} setToken={this.setToken} />} />
         <Route exact path={'/signup'} component={(props) => <SignupForm {...props} setToken={this.setToken} />} />
         <Route exact path={'/events'} render={(props) => <EventContainer {...props}   addToFavorites={this.addToFavorites} />} />
         <Route exact path={'/eventcreate'} render={(props) => <EventCreateForm addEvent={this.addEvent} {...props}  />} />
-        <Route exact path={'/profile'} render={(props) => <Profile {...props} events={this.state.todos} />} />
+        <Route exact path={'/profile'} render={(props) => <Profile {...props}  />} />
         <Route exact path={'/favoritevents'} render={(props) => <FavoriteEventList removeIt={this.removeIt} {...props} user={ this.state.loggedInUserId } setFavoriteEvents={this.setFavoriteEvents} favoriteEvents={this.state.favoriteEvents} />} />
 
         <Route exact path={'*'} component={FourOhFour} /> 
       </Switch>
+      {this.state.token ? "" : <Redirect to='/' />} 
       
     </div>
   );

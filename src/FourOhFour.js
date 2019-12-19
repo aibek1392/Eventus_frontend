@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap'
  const FourOhFour = (props) => {
    const  goBack = (e) => {
         e.preventDefault()
-        props.history.push('/')
+        props.history.goBack()
     }
 
 

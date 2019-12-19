@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Card } from 'react-bootstrap'
+import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
+
 // import { Button } from 'react-bootstrap'
 // import { Image } from 'react-bootstrap'
 // import 'bootstrap/dist/css/bootstrap.css'
@@ -12,7 +15,6 @@ export default class FavoriteEvent extends Component {
 
     render() {
        
-       console.log(this.props.event)
         return (
             <div>
                 <Card style={{ width: '18rem' }}>
@@ -32,7 +34,10 @@ export default class FavoriteEvent extends Component {
                     <Card.Text> 
                      Start time: {this.props.event.event.start_time}
                     </Card.Text>
-                    <button onClick={() => this.props.removeIt(this.props.event)}  className="btn btn-danger btn-sm"> Remove </button>
+                    <Button onClick={() => this.props.removeIt(this.props.event)} 
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<DeleteIcon />}> Remove </Button>
                 </Card.Body>
                 </Card>
             </div>

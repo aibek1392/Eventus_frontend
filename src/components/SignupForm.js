@@ -29,7 +29,7 @@ export default class SignupForm extends React.Component {
 		event.preventDefault()
 		// console.log(event)
 		this.onClickFunctionsSubmitSignUp(event)
-		// this.props.history.push('/events')
+		this.props.history.push('/events')
 		// this.props.updateCart()
 		// this.props.displayItems()
 	  }
@@ -52,8 +52,9 @@ export default class SignupForm extends React.Component {
 			if (res_obj.errors) {
 				this.props.history.push('/404')
 			} else {
-				this.props.setToken(res_obj)
-				this.props.history.push('/events')
+		// this.props.displayItems()
+		// this.props.history.push('/events')
+        this.props.setToken(res_obj)
 		}
 		})
 		}
@@ -73,7 +74,7 @@ export default class SignupForm extends React.Component {
 						       value={ this.state.username } />
 						<label htmlFor='sign_up_password'>Password</label>
 						<input id="sign_up_password"
-							   placeholder="...Enter your password"
+						placeholder="...Enter your username"
 						       type="password"
 						       onChange={ this.onChange }
 						       name="password"

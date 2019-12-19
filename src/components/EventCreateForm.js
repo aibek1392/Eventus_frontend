@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Header.css'
+import '../App.css'
 import { Button, Form, InputGroup, FormControl, Col } from 'react-bootstrap'
-
 
 class EventCreateForm extends React.Component {
   
@@ -18,16 +18,32 @@ class EventCreateForm extends React.Component {
     onSubmit = (e) =>{
         e.preventDefault()
         this.props.addEvent(this.state)
+        this.props.history.push('/events')
     }
 
         onChange = (e) => {
             this.setState({ [e.target.name]: e.target.value })
         }
 
+        goBack = (e) => {
+            e.preventDefault()
+            this.props.history.goBack()
+        }
 
   render() {
-      console.log(this.state)
+     
     return (
+        <div style={{ minHeight: '100%' }} className="container">
+            <Button 
+            onClick={(e) => this.goBack(e)}
+            style={{ width: '29%', color: 'black', marginLeft: '34%',
+            justifyContent: "center"
+    }}
+        size='lg'
+        className="h-100 row align-items-center"
+         variant="outline-primary">
+         Press here to go back 
+        </Button>
         <Form  onSubmit={this.onSubmit}  className="active" >
             <h2 style={{ color: "white"}}>Let's create Event </h2>
             <InputGroup className="mb-3">
@@ -78,6 +94,7 @@ class EventCreateForm extends React.Component {
                 <InputGroup.Text id="inputGroup-sizing-default">State</InputGroup.Text>
             </InputGroup.Prepend>
                 <FormControl
+                
                 value={this.state.location}
                 onChange={this.onChange}
                 name="location"
@@ -116,12 +133,15 @@ class EventCreateForm extends React.Component {
         </InputGroup>
         
       
-        <Button variant="primary"
-        value="Submit"
-         type="submit">
-          Submit
+        <Button 
+            style={{ width: '29%', color: 'black', textAlign: 'center'  }}
+            variant="outline-primary"
+            value="Submit"
+            type="submit">
+            Submit
         </Button>
       </Form>
+      </div>
     )
   }
 }

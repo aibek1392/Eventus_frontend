@@ -5,8 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./images/photo-1513151233558-d860c5398176.jpeg);
+  background-size: cover;
+  height: 100%;
+  width: 100;
+  margin: 0
 }
 
+.container {
+  background-size: cover;
+  height: 100%;
+  width: 100;
+  margin: 0
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

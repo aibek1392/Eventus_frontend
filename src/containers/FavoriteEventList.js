@@ -7,9 +7,26 @@ import FavoriteEvent from '../components/FavoriteEvent'
 
 export default class FavoriteEventList extends Component {
 
+    componentDidMount(){
+        // console.log("hello")
+        fetch("http://localhost:3001/favorite_events")
+        .then(r => r.json())
+        .then(res => {
+    
+          const arr = res.filter(event =>  { 
+           return event.user.id  === parseInt(this.props.user)
+          })
+       
+          this.props.setFavoriteEvents(arr)
+          
+        })
+      }
+
+    
+
     
     render() {
-        // console.log(this.props.favoriteEvents)
+        // console.log(this.props.user/)
         const favoriteEvents = this.props.favoriteEvents.map((event, index) => {  
             return <FavoriteEvent user={this.props.user} 
             setFavoriteEvents={this.props.setFavoriteEvents} 

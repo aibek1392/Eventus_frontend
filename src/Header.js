@@ -43,7 +43,7 @@ onClickFunctionsLogOut = () => {
 						:
 						null
 						} 
-					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>EVENTUS</h1>
+					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>eventUS</h1>
 						
 						{ this.props.token ?
 						<Link   to='/profile'>
