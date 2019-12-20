@@ -18,7 +18,12 @@ class EventCreateForm extends React.Component {
     onSubmit = (e) =>{
         e.preventDefault()
         this.props.addEvent(this.state)
-        this.props.history.push('/events')
+        .then((res) => res.json())
+        .then((newEvent) => {
+            console.log(newEvent)
+            
+            this.props.history.push('/events')
+        })
     }
 
         onChange = (e) => {
@@ -41,11 +46,11 @@ class EventCreateForm extends React.Component {
     }}
         size='lg'
         className="h-100 row align-items-center"
-         variant="outline-primary">
+         variant="warning">
          Press here to go back 
         </Button>
         <Form  onSubmit={this.onSubmit}  className="active" >
-            <h2 style={{ color: "white"}}>Let's create Event </h2>
+            <h2 style={{ color: "black", "font-weight":"bold"}}>Let's create an Event </h2>
             <InputGroup className="mb-3">
             <InputGroup.Prepend>
                 <InputGroup.Text id="inputGroup-sizing-default">img url</InputGroup.Text>
@@ -134,8 +139,8 @@ class EventCreateForm extends React.Component {
         
       
         <Button 
-            style={{ width: '29%', color: 'black', textAlign: 'center'  }}
-            variant="outline-primary"
+            style={{ width: '29%', color: 'white', textAlign: 'center'  }}
+            variant="dark"
             value="Submit"
             type="submit">
             Submit

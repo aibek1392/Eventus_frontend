@@ -20,6 +20,7 @@ export default class EventContainer extends Component {
     componentDidMount(){
         axios.get("http://localhost:3001/events")
           .then(response => { 
+          
               this.setState({
                   events: response.data,
                

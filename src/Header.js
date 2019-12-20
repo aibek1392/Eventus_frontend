@@ -23,10 +23,11 @@ onClickFunctionsLogOut = () => {
 // }
 
 	render(){
-		
+		console.log(this.props.username)
 		return(
 			<>
 				<div className="Header">
+				
 				{ this.props.token ?
 						<Link   to='/favoritevents'>
 						<Button 
@@ -39,36 +40,47 @@ onClickFunctionsLogOut = () => {
 						<Link   to='/eventcreate'>
 						<Button 
 						variant="danger" 
+						style={{borderRadius: "50%",border: 'none', cursor: 'pointer', padding: '10px 10px', float: 'right'}}
+
 						>Create Event </Button></Link>
 						:
 						null
 						} 
 					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>eventUS</h1>
-						
+					{ this.props.token ?
+		   				<h5  >Hey {this.props.username}!</h5>
+
+						:
+						null
+						} 
 						{ this.props.token ?
 						<Link   to='/profile'>
 						<Button 
-						variant="info" 
-						>👤 </Button></Link>
+				style={{borderRadius: "50%",border: 'none', cursor: 'pointer', padding: '5px 10px', float: 'right'}}
+
+						variant="light" 
+						>👤</Button></Link>
+						:
+						null
+						} 
+						{ this.props.token ?
+						<Link   to='/events'>
+						<Button 
+						variant="primary" 
+						>All events </Button></Link>
 						:
 						null
 						} 
 						{ this.props.token ?
 						<Link   to='/'>
 						<Button 
-						variant="warning" onClick={ this.onClickFunctionsLogOut }
+						variant="danger" onClick={ this.onClickFunctionsLogOut }
+						style={{borderRadius: "50%",border: 'none', cursor: 'pointer', padding: '22px 9px', float: 'right'}}
 						>LogOut </Button></Link>
 						:
 						null
 						}
-						{ this.props.token ?
-						<Link   to='/events'>
-						<Button 
-						variant="danger" 
-						>🏠 </Button></Link>
-						:
-						null
-						} 
+						
 						
 				</div>
 			</>

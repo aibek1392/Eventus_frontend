@@ -19,8 +19,8 @@ export default class App extends React.Component {
   state = {
     token: localStorage.token,
     loggedInUserId: localStorage.userId,
-	  username: null,
-    display: 'Login',
+	  username: localStorage.username,
+
     favoriteEvents: []
   }
 
@@ -34,21 +34,30 @@ export default class App extends React.Component {
 
     this.setState({
       token: token,
-      loggedInUserId: user_id
+      loggedInUserId: user_id,
+      username: username
     })
   }
 
-  
-
+//   componentDidMount(){
+// fetch("https://app.ticketmaster.com/discovery/v2/events.json?apikey=r7qtrGxNYlU9gXJwaNwTHLuk6NJQa1RR&size=200")
+//   .then(r=>r.json())
+//   .then(r=> console.log(r))
+//   }
 
   logOut = () => {
     localStorage.clear()
     this.setState({
       loggedInUserId: null,
       token: null,
-      favoriteEvents: []
+      favoriteEvents: [],
+      username: null
     })
   }
+
+
+  
+  
 
   addToFavorites = (event) => {
     const match = this.state.favoriteEvents.find(joiner => joiner.event.id === event.id)
@@ -99,7 +108,7 @@ export default class App extends React.Component {
   }
 
   addEvent = (newEvent) => {
-    fetch(`http://localhost:3001/events`, {
+    return fetch(`http://localhost:3001/events`, {
       method: "POST",
       headers: {
         "Content-type":"application/json"
@@ -109,22 +118,17 @@ export default class App extends React.Component {
         user_id: this.state.loggedInUserId
       })
     })
-    // .then(r=>r.json())
-    // .then( createdEvent=> {
-    //     this.setState({
-    //       events: [...this.state.events, createdEvent]
-    //     })
-    // } )
+
 
 
   }
 
   
   render(){
-  // console.log(this.state.favoriteEvents)
+  console.log(this.state.favoriteEvents)
     return (
     <div>
-      <Header logOut={ this.logOut } token={this.state.token} />
+      <Header logOut={ this.logOut } token={this.state.token}  username={this.state.username}/>
       <Switch>
       {/* {this.state.token ? null : <Redirect from='/profile' to='/' />}  */}
 

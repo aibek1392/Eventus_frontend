@@ -12,32 +12,33 @@
 
 .item_card {
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	flex-wrap: no-wrap;
 	justify-content: center;
 	padding: 5px;
-	margin: 5px;
-	width:150px;
+	margin: 15px;
+	width: 20%;
 	background-color: #FFF;
-	font-size: 10pt;
+	font-size: 15pt;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
 
 }
 
 .Header {
   	background-image: radial-gradient(rgb(81, 88, 102, 1),  rgb(40, 44, 52, 1) );
-  position: relative;
-  top: 0px;
-  padding: 20px;
+  /* position: relative; */
+  /* top: 0px; */
+  padding: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: nowrap;
+  /* justify-content: space-between; */
+  /* font-size: calc(10px + 2vmin); */
   color: white;
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
-	-moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
-	-webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	/* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25); */
+	/* -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25); */
+	/* -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25), 0 0 5px 0 rgba(0, 0, 0, 0.25); */
 
 }
 
@@ -64,7 +65,7 @@
 .active {
 	
 	border: none;
-  	background-image: radial-gradient(rgb(90, 87, 87),  rgba(221, 215, 215) );
+  	background-image: radial-gradient(rgba(15, 15, 15, 0),  rgba(221, 215, 215, 5) );
 	color: #000;
 	text-align: center;
 	text-decoration: none;

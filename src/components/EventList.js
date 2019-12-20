@@ -37,7 +37,6 @@ export default class EventList extends Component {
                  <label>
                         Search: <input  value={this.state.searchTerm} onChange={this.handleChange}  type="search"/>
                 </label>
-               
             <div className="item_list">
                 {events}
             </div>

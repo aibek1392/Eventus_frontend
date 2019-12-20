@@ -48,7 +48,7 @@ export default class LogIn extends React.Component {
     .then(response => response.json())
     .then(res_obj => {
       
-      // console.log(res_obj)
+      console.log(res_obj)
       if (res_obj.errors) {
         // debugger
         this.props.history.push('/404')
