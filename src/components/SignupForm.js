@@ -50,7 +50,8 @@ export default class SignupForm extends React.Component {
 		.then(res_obj => {
 				console.log(res_obj.errors)
 			if (res_obj.errors) {
-				this.props.history.push('/404')
+				alert(res_obj.errors)
+				this.props.history.push('/signup')
 			} else {
 		// this.props.displayItems()
 		// this.props.history.push('/events')

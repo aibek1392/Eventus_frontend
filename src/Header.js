@@ -59,7 +59,7 @@ onClickFunctionsLogOut = () => {
 				style={{borderRadius: "50%",border: 'none', cursor: 'pointer', padding: '5px 10px', float: 'right'}}
 
 						variant="light" 
-						>👤</Button></Link>
+						><span>👤</span></Button></Link>
 						:
 						null
 						} 

@@ -20,7 +20,6 @@ class EventCreateForm extends React.Component {
         this.props.addEvent(this.state)
         .then((res) => res.json())
         .then((newEvent) => {
-            console.log(newEvent)
             
             this.props.history.push('/events')
         })
@@ -50,7 +49,7 @@ class EventCreateForm extends React.Component {
          Press here to go back 
         </Button>
         <Form  onSubmit={this.onSubmit}  className="active" >
-            <h2 style={{ color: "black", "font-weight":"bold"}}>Let's create an Event </h2>
+            <h2 style={{ color: "black", fontWeight:"bold"}}>Let's create an Event </h2>
             <InputGroup className="mb-3">
             <InputGroup.Prepend>
                 <InputGroup.Text id="inputGroup-sizing-default">img url</InputGroup.Text>
