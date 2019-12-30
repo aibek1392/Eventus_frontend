@@ -1,9 +1,12 @@
 .signup_wrapper {
     text-align: center;
-      width: 80%;
+      width: 25%;
    margin: auto;
       padding: 5px;
-      background-color: #fffdf7;
+      background: radial-gradient(rgb(22, 235, 235), rgba(3, 66, 2, 0));
+      border-radius: 40px;
+      margin-top: 90px;
+     
   }
   
   .signup_wrapper form input {

@@ -1,4 +1,4 @@
-.item_filters {
+ .item_filters {
   background-image: radial-gradient(rgb(158, 83, 83),  rgb(255, 253, 247, 1) );
   display: flex;
   flex-direction: row;
@@ -15,15 +15,15 @@
 }
 
 .item_list {
+  box-shadow: -2rem 0 3rem rgb(2, 8, 88);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: stretch;
   align-content: flex-start;
-  padding: 10px;
-  margin: 2.5px;
-  
+  padding: 50px; 
+   margin-left: 4px;
+  border-radius: 60px;
 }
 
 .drop_down {
@@ -31,7 +31,85 @@
  overflow: hidden;
  border: 1px dotted black;
 }
-.item_card h1 {
+ /* .item_card h1 {
 	text-align: center;
-	font-size: 10pt;
+  font-size: 10pt;
+  display: flex;
+}  */
+
+.item_card:not(:first-child) {
+  margin-left: 50px;
+  justify-content: center;
+
+}
+.item_card:hover {
+  transform: translateY(-10px);
+  transition: 0.5s ease-out;
+  /* margin:  9px; */
+  justify-content: center;
+
+}
+.item_card:hover ~ .card {
+  position: relative;
+  left: 100px;
+  transition: 0.4s ease-out;
+}
+.event_title {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+.bar {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  height: 5px;
+  width: 150px;
+}
+.emptybar {
+  background-color: #2e3033;
+  width: 100%;
+  height: 100%;
+}
+.filledbar {
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  background: rgb(0,154,217);
+  background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+  transition: 0.6s ease-out;
+}
+.item_list:hover .filledbar {
+  /* width: 120px; */
+  transition: 0.4s ease-out;
+  justify-content: center;
+
+}
+.circle {
+  position: absolute;
+  top: 150px;
+  left: calc(50% - 60px);
+}
+.stroke {
+  stroke: white;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.6s ease-out;
+}
+/* svg {
+  fill: #17141d;
+  stroke-width: 2px;
+} */
+/* .item_card:hover .stroke {
+  stroke-dashoffset: 100;
+  transition: 0.6s ease-out;
+} */
+
+.col-sm-4.py-2.px-2 {
+width: 50%;
+height: 80%;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Redirect, Switch} from 'react-router-dom'
+import { Route, Redirect, Switch } from 'react-router-dom'
 import LoginForm from './components/LoginForm'
 import FourOhFour from './FourOhFour'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,27 +10,28 @@ import Profile from './containers/Profile'
 import EventCreateForm from './components/EventCreateForm';
 import axios from 'axios'
 import FavoriteEventList from './containers/FavoriteEventList'
-
+import { WrappedMap } from './containers/Map'
+import ShowDetailsPage from './components/ShowDetailsPage'
 
 
 export default class App extends React.Component {
 
- 
+
   state = {
     token: localStorage.token,
     loggedInUserId: localStorage.userId,
-	  username: localStorage.username,
+    username: localStorage.username,
 
     favoriteEvents: []
   }
 
- 
 
-  setToken = ({ token, user_id, username })  =>{
+
+  setToken = ({ token, user_id, username }) => {
 
     localStorage.token = token
     localStorage.userId = user_id
-	  localStorage.username = username
+    localStorage.username = username
 
     this.setState({
       token: token,
@@ -39,11 +40,11 @@ export default class App extends React.Component {
     })
   }
 
-//   componentDidMount(){
-// fetch("https://app.ticketmaster.com/discovery/v2/events.json?apikey=r7qtrGxNYlU9gXJwaNwTHLuk6NJQa1RR&size=200")
-//   .then(r=>r.json())
-//   .then(r=> console.log(r))
-//   }
+    componentDidMount(){
+  fetch("https://app.ticketmaster.com/discovery/v2/events.json?apikey=r7qtrGxNYlU9gXJwaNwTHLuk6NJQa1RR&size=200")
+    .then(r=>r.json())
+    .then(r=> console.log(r))
+    }
 
   logOut = () => {
     localStorage.clear()
@@ -56,13 +57,13 @@ export default class App extends React.Component {
   }
 
 
-  
-  
+
+
 
   addToFavorites = (event) => {
-    const match = this.state.favoriteEvents.find(joiner => joiner.event.id === event.id)
-    if(!match){
-    fetch("http://localhost:3001/favorite_events", {
+    const match = this.state.favoriteEvents.find(joiner => console.log(event) || joiner.event.id === event.id)
+    if (!match) {
+      fetch("http://localhost:3001/favorite_events", {
         headers: {
           "Content-Type": "application/json"
         },
@@ -71,21 +72,22 @@ export default class App extends React.Component {
           user_id: this.state.loggedInUserId,
           event_id: event.id
         })
-        })
-        .then(r=> r.json())
-        .then(r_json => { console.log(r_json)
-            this.setState({
-              favoriteEvents: [...this.state.favoriteEvents, r_json]
-            })
+      })
+        .then(r => r.json())
+        .then(r_json => {
+          console.log(r_json)
+          this.setState({
+            favoriteEvents: [...this.state.favoriteEvents, r_json]
+          })
         }
-    )
-  } else {
-     alert( "You already have this event")
-  }
+        )
+    } else {
+      alert("You already have this event")
+    }
   }
 
 
- 
+
 
 
   setFavoriteEvents = (arr) => {
@@ -93,25 +95,25 @@ export default class App extends React.Component {
       favoriteEvents: arr
     })
   }
- 
 
-  removeIt = (favorite) => {
+
+  removeFromFavorite = (favorite) => {
     console.log(favorite.id)
     fetch(`http://localhost:3001/favorite_events/${favorite.id}`, {
       method: "DELETE"
     })
-    .then(
-      this.setState({
-        favoriteEvents: this.state.favoriteEvents.filter(event => event.id !== favorite.id)
-      })
-    )
+      .then(
+        this.setState({
+          favoriteEvents: this.state.favoriteEvents.filter(event => event.id !== favorite.id)
+        })
+      )
   }
 
   addEvent = (newEvent) => {
     return fetch(`http://localhost:3001/events`, {
       method: "POST",
       headers: {
-        "Content-type":"application/json"
+        "Content-type": "application/json"
       },
       body: JSON.stringify({
         ...newEvent,
@@ -123,29 +125,37 @@ export default class App extends React.Component {
 
   }
 
-  
-  render(){
-  console.log(this.state.favoriteEvents)
+  render() {
+    // console.log(process.env.REACT_APP_GOOGLE_MAPS_KEY)
+
     return (
-    <div>
-      <Header logOut={ this.logOut } token={this.state.token}  username={this.state.username}/>
-      <Switch>
-      {/* {this.state.token ? null : <Redirect from='/profile' to='/' />}  */}
+      <div>
+        <Header logOut={this.logOut} token={this.state.token} username={this.state.username} />
+        <Switch>
 
-        <Route exact path={'/'} render={(props) => <LoginForm {...props} setToken={this.setToken} />} />
-        <Route exact path={'/signup'} component={(props) => <SignupForm {...props} setToken={this.setToken} />} />
-        <Route exact path={'/events'} render={(props) => <EventContainer {...props}   addToFavorites={this.addToFavorites} />} />
-        <Route exact path={'/eventcreate'} render={(props) => <EventCreateForm addEvent={this.addEvent} {...props}  />} />
-        <Route exact path={'/profile'} render={(props) => <Profile {...props}  />} />
-        <Route exact path={'/favoritevents'} render={(props) => <FavoriteEventList removeIt={this.removeIt} {...props} user={ this.state.loggedInUserId } setFavoriteEvents={this.setFavoriteEvents} favoriteEvents={this.state.favoriteEvents} />} />
+          {/* {this.state.token ? null : <Redirect from='/profile' to='/' />}  */}
+          <Route exact path={'/showdetails'} render={(props) => <ShowDetailsPage {...props} setToken={this.setToken} />} />
 
-        <Route exact path={'*'} component={FourOhFour} /> 
-      </Switch>
-      {this.state.token ? "" : <Redirect to='/' />} 
-      
-    </div>
-  );
-}
+          <Route exact path={'/'} render={(props) => <LoginForm {...props} setToken={this.setToken} />} />
+          <Route exact path={'/signup'} component={(props) => <SignupForm {...props} setToken={this.setToken} />} />
+          <Route exact path={'/events'} render={(props) => <EventContainer {...props} addToFavorites={this.addToFavorites} />} />
+          <Route exact path={'/eventcreate'} render={(props) => <EventCreateForm addEvent={this.addEvent} {...props} />} />
+          <Route exact path={'/profile'} render={(props) => <Profile {...props} username={this.state.username} />} />
+          <Route exact path={'/favoritevents'} render={(props) => <FavoriteEventList removeFromFavorite={this.removeFromFavorite} {...props} user={this.state.loggedInUserId} setFavoriteEvents={this.setFavoriteEvents} favoriteEvents={this.state.favoriteEvents} />} />
+          <div style={{ width: '100vw', height: '70vw' }}>
+            <Route exact path={'/map'} render={(props) => <WrappedMap {...props}
+              googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}`}
+              loadingElement={<div style={{ height: '100%' }} />}
+              containerElement={<div style={{ height: '100%' }} />}
+              mapElement={<div style={{ height: '100%' }} />} />} />
+          <Route exact path={'/404'} component={FourOhFour} />
+          </div>
+        </Switch>
+        {this.state.token ? "" : <Redirect to='/' />}
+
+      </div>
+    );
+  }
 }
 
 

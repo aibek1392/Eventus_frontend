@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Event from './Event'
-import "./Event.css"
+// import "./Event.css"
+// import './Styling.scss'
 import { DropdownButton, Dropdown, Form, Col } from 'react-bootstrap'
 // import { Dropdown } from 'react-bootstrap'
 
@@ -24,7 +25,7 @@ export default class EventList extends Component {
 
         const searchedEvent = this.props.events.filter(searchedEvent =>  searchedEvent.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
-        const events = searchedEvent.map(event => {  
+        const eventList = searchedEvent.map(event => {  
             return <Event 
                   addToFavorites={this.props.addToFavorites} 
                   key={event.id} 
@@ -33,14 +34,17 @@ export default class EventList extends Component {
         
 
         return (
-            <React.Fragment>
-                 <label>
+            <div>
+                 <label style={{marginLeft: "5.5%"}}>
                         Search: <input  value={this.state.searchTerm} onChange={this.handleChange}  type="search"/>
                 </label>
-            <div className="item_list">
-                {events}
+              
+            <div className="container">
+                <div className="row">
+                {eventList}
+                </div>
             </div>
-            </React.Fragment>
+            </div>
         )
     }
 }

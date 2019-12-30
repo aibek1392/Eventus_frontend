@@ -42,6 +42,12 @@
 
 
 
+
 body {
   background-color: red;
+}
+
+.ui.grid {
+  flex-wrap: nowrap;
+  max-height: 100%;
 }

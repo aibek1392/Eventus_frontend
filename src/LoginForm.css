@@ -1,9 +1,12 @@
 .login_wrapper {
     text-align: center;
-      width: 80%;
-   margin: auto;
+      width: 25%;
+      margin: auto;
+      margin-top: 90px;
       padding: 5px;
-      background-color: #fffdf7;
+      background: radial-gradient(rgb(22, 235, 235), rgba(3, 66, 2, 0));
+      border-radius: 40px;
+
   }
   
   .login_wrapper form input {

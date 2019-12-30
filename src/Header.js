@@ -27,6 +27,14 @@ onClickFunctionsLogOut = () => {
 		return(
 			<>
 				<div className="Header">
+				{ this.props.token ?
+						<Link   to='/map'>
+						<Button 
+						variant="primary" 
+						>Map</Button></Link>
+						:
+						null
+						} 
 				
 				{ this.props.token ?
 						<Link   to='/favoritevents'>
@@ -46,9 +54,9 @@ onClickFunctionsLogOut = () => {
 						:
 						null
 						} 
-					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>eventUS</h1>
+					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>EVENTUS</h1>
 					{ this.props.token ?
-		   				<h5  >Hey {this.props.username}!</h5>
+		   				<h4 style={{marginRight: "5%", border: "1px", color: "red"}} >Wellcome {this.props.username}!</h4>
 
 						:
 						null
@@ -59,7 +67,7 @@ onClickFunctionsLogOut = () => {
 				style={{borderRadius: "50%",border: 'none', cursor: 'pointer', padding: '5px 10px', float: 'right'}}
 
 						variant="light" 
-						><span>👤</span></Button></Link>
+						><span> 👤</span></Button></Link>
 						:
 						null
 						} 
@@ -80,6 +88,7 @@ onClickFunctionsLogOut = () => {
 						:
 						null
 						}
+						
 						
 						
 				</div>

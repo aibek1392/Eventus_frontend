@@ -32,7 +32,7 @@ export default class FavoriteEventList extends Component {
             setFavoriteEvents={this.props.setFavoriteEvents} 
             addToFavorites={this.props.addToFavorites} 
              key={index} event={event} 
-             removeIt={this.props.removeIt}/>
+             removeFromFavorite={this.props.removeFromFavorite}/>
         })
         
 
