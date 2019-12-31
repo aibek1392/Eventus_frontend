@@ -8,6 +8,7 @@
   align-content: flex-start;
   padding: 10px;
   margin: 2.5px;
+  
 }
 
 .item_filters label {
@@ -16,6 +17,7 @@
 
 .item_list {
   box-shadow: -2rem 0 3rem rgb(2, 8, 88);
+  justify-content: flex-start;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -38,8 +40,11 @@
 }  */
 
 .item_card:not(:first-child) {
+  box-shadow: -2rem 0 3rem rgb(2, 8, 88);
+  height: 5px;
   margin-left: 50px;
   justify-content: center;
+  
 
 }
 .item_card:hover {

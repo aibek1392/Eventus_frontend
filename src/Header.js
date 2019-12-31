@@ -13,6 +13,12 @@ export default class Header extends React.Component {
 // 	this.props.displayItems()
 // }
 
+goHome = (e) => {
+	e.preventDefault()
+	this.props.history.push('/events')
+}
+
+
 onClickFunctionsLogOut = () => {
 	this.props.logOut(this.props.token)
 	// this.props.displayLogin()
@@ -48,7 +54,7 @@ onClickFunctionsLogOut = () => {
 						<Link   to='/eventcreate'>
 						<Button 
 						variant="danger" 
-						style={{borderRadius: "50%",border: 'none', cursor: 'pointer', padding: '10px 10px', float: 'right'}}
+						style={{borderRadius: "50%", cursor: 'pointer', padding: '10px 10px', float: 'right'}}
 
 						>Create Event </Button></Link>
 						:
@@ -56,7 +62,7 @@ onClickFunctionsLogOut = () => {
 						} 
 					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>EVENTUS</h1>
 					{ this.props.token ?
-		   				<h4 style={{marginRight: "5%", border: "1px", color: "red"}} >Wellcome {this.props.username}!</h4>
+		   				<h4 style={{marginRight: "5%", border: "1px", color: "white"}} >Wellcome {this.props.username}!</h4>
 
 						:
 						null
@@ -73,7 +79,7 @@ onClickFunctionsLogOut = () => {
 						} 
 						{ this.props.token ?
 						<Link   to='/events'>
-						<Button 
+						<Button  onClick={this.props.goEvents}
 						variant="primary" 
 						>All events </Button></Link>
 						:
@@ -83,11 +89,11 @@ onClickFunctionsLogOut = () => {
 						<Link   to='/'>
 						<Button 
 						variant="danger" onClick={ this.onClickFunctionsLogOut }
-						style={{borderRadius: "50%",border: 'none', cursor: 'pointer', padding: '22px 9px', float: 'right'}}
 						>LogOut </Button></Link>
 						:
 						null
 						}
+
 						
 						
 						

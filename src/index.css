@@ -5,11 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(./images/photo-1513151233558-d860c5398176.jpeg);
+  
+  background-image: url(./images/wall-wallpaper-concrete-colored-painted-textured-concept_53876-31799.jpg);
   background-size: cover;
-  height: 100%;
-  width: 100;
+  border: blue;
+  display: block;
+  height: 500px;
+  width: 100%;
   margin: 0
+  
 }
 
 .createform {
@@ -17,7 +21,7 @@ body {
   height: 100%;
   width: 80%;
   margin: 0;
-  margin-left: 6%;
+  margin-left: 10%;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

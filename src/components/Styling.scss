@@ -1,7 +1,7 @@
-		// body {
-		// 	background-color: #100e17;
-		// 	font-family: 'Open Sans', sans-serif;
-		// }
+		body {
+			background-color: #100e17;
+			font-family: 'Open Sans', sans-serif;
+		}
 		// .container {
 		// 	// position: absolute;
 		// 	height: 300px;
@@ -17,7 +17,7 @@
 			justify-content: center;
 			// padding: 5px;
 			margin: 50px;
-			width: 30%;
+			// width: 30%;
 			flex-direction: row;
 			position: absolute;
 			flex-wrap: wrap;
@@ -29,7 +29,7 @@
 			flex-wrap: nowrap;
 			text-align: center;
 			// justify-content: space-around;
-			height: 400px;
+			height: 440px;
 			width: 100%;
 			background-color: #fbf9ff;
 			border-radius: 10px;
@@ -51,21 +51,35 @@
 			transition: 0.4s ease-out;
 		}
 		.event_card:hover ~ .card {
-			height: 80%;
+			height: 90%;
 			position: relative;
 			left: 50px;
 			transition: 0.4s ease-out;
 		}
 		.title {
-			background-color: rgba(13, 13, 14, 0.5);
-			margin-top: -15px;
+			background-color: rgba(18, 16, 129, 0.5);
+			// background-color: rgb(105, 172, 102);
+			margin: 100px;
 			color: rgb(245, 240, 240);
 			font-weight: 300;
 			position: absolute;
+			width: 100.5%;
 			justify-content: center;
-			left: 20px;
-			top: 15px;
+			margin-left: -3.5%;
+			// padding-top:50px;
 			border-radius: 5px;
+			// height:30%;
+		}
+
+
+		.image-divcard {
+			max-width: 500rem;
+			width: 100%;
+			// padding-bottom: 0px !important;
+			margin-bottom: -11.5% !important;
+			margin-left: -13%;
+			// margin-right: -15%;
+			height: 20;
 		}
 		.bar {
 			position: absolute;
@@ -85,8 +99,8 @@
 			z-index: 3;
 			width: 0px;
 			height: 100%;
-			background: rgb(0,154,217);
-			background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+			background: rgb(3, 57, 78);
+			background: linear-gradient(90deg, rgb(72, 0, 217) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
 			transition: 0.6s ease-out;
 		}
 		.event_card:hover .filledbar {

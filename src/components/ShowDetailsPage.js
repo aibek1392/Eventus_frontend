@@ -1,54 +1,37 @@
-import React, { Component } from 'react'
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import axios from 'axios'
-// import Fab from '@material-ui/core/Fab';
-export default class ShowDetailsPage extends Component {
+import React, { Component } from 'react';
+import './Showdetail.scss'
+import { Button } from 'react-bootstrap'
 
-    // state = {
-    //     events: [],
-    //     showFilteredEvents: "All"
-        
+
+
+export class ShowDetailsPage extends Component {
+    // addingThisToCart = (e) => {
+    //     this.props.addToCart(e)
     // }
-
-
-    componentDidMount(){
-        axios.get("http://localhost:3001/events")
-          .then(response => { 
-              console.log(response)
-              this.setState({
-                  events: response.data,
-               
-                })
-          })
-      }
-
-
     render() {
+        const deleteSymbolfromAddress = this.props.singleEventDetail.description.replace("&", "")
+        console.log(this.props.singleEventDetail)
+        const { image, name, latitude, location, city, date ,start_time, longitude,description } = this.props.singleEventDetail
         return (
-            <div>
-                <h1>SHOWDETAILS</h1>
-                  {/* <div className="container mx-auto" style={{ width: '40%', marginRight: "350px" }} >
-            <div className="event_card"  >
-                {/* <Card.Img variant="top" src={this.props.event.image} /> */}
-              {/* <img src={this.props.event.image} style={{width: "90%", height: "350px"}} /> */}
-              {/* <h3 className="title">Card 1</h3> */}
-              {/* <div className="bar"> */}
-                {/* <div className="emptybar"></div>
-                <div className="filledbar"></div> */}
-              {/* </div> */}
-              {/* <div className="circle"> */}
-                {/* <svg version="1.1" xmlns="http://www.w3.org/2000/svg"> */}
-                {/* <circle className="stroke" cx="60" cy="60" r="50"/> */}
-              {/* </svg> */}
-              {/* </div> */}
-              {/* <Fab onClick={()=> this.props.addToFavorites(this.props.event)} aria-label="add" color="secondary"> <AddIcon /></Fab> */}
+            <div className="single_card">
+                <div >
+                    <img className="image-card" src={image} />
+                </div>
+               <div style={{marginTop: "5%"}}>
+        <h2 style={{textShadow: "3px 0px white"}}>{name}</h2>
+        <h2 style={{textShadow: "3px 1px white"}}>Address: {deleteSymbolfromAddress}, {location}, {city}</h2>
+        <h2 style={{textShadow: "3px 0px white"}}>Start Time:{start_time}</h2>
+        <h2 style={{textShadow: "3px 0px white"}}>Date: {date}</h2>
+        </div>
 
+
+                <div style={{marginTop: "40px"}} >
+                    <iframe className="map-div" 
+                        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}&q=${location},${city},${deleteSymbolfromAddress}`} />
+                </div>
             </div>
-        // </div> */}
 
-
-            // </div>
-        )
+        );
     }
 }
+export default ShowDetailsPage;

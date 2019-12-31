@@ -13,7 +13,8 @@ class EventCreateForm extends React.Component {
         date: '',
         location: '',
         description: '',
-        start_time: ''
+        start_time: '',
+        city: ''
     }
 
 
@@ -40,7 +41,7 @@ class EventCreateForm extends React.Component {
     //         }
     //       );
     // }
-    
+
 
 
     onChange = (e) => {
@@ -93,6 +94,21 @@ class EventCreateForm extends React.Component {
                             name="name"
                             onChange={this.onChange}
                             value={this.state.name}
+                            aria-label="Default"
+                            aria-describedby="inputGroup-sizing-default"
+                        />
+                    </InputGroup>
+                    <InputGroup className="mb-3" md="auto">
+                        <InputGroup.Prepend>
+                            <InputGroup.Text id="inputGroup-sizing-default"
+
+                            >City</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl
+                            placeholder="...Enter the City of the event"
+                            name="city"
+                            onChange={this.onChange}
+                            value={this.state.city}
                             aria-label="Default"
                             aria-describedby="inputGroup-sizing-default"
                         />
@@ -150,7 +166,7 @@ class EventCreateForm extends React.Component {
                             value={this.state.start_time}
                             onChange={this.onChange}
                             name="start_time"
-                            placeholder="...Enter start time of the event"
+                            placeholder="00:00:00"
                             aria-label="Default"
                             aria-describedby="inputGroup-sizing-default"
                         />

@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom'
 import LoginForm from './components/LoginForm'
 import FourOhFour from './FourOhFour'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './Header'
 import SignupForm from './components/SignupForm'
 import EventContainer from './containers/EventContainer'
@@ -13,6 +12,8 @@ import FavoriteEventList from './containers/FavoriteEventList'
 import { WrappedMap } from './containers/Map'
 import ShowDetailsPage from './components/ShowDetailsPage'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 export default class App extends React.Component {
 
@@ -21,7 +22,7 @@ export default class App extends React.Component {
     token: localStorage.token,
     loggedInUserId: localStorage.userId,
     username: localStorage.username,
-
+    singleEventDetail: null,
     favoriteEvents: []
   }
 
@@ -40,11 +41,11 @@ export default class App extends React.Component {
     })
   }
 
-    componentDidMount(){
-  fetch("https://app.ticketmaster.com/discovery/v2/events.json?apikey=r7qtrGxNYlU9gXJwaNwTHLuk6NJQa1RR&size=200")
-    .then(r=>r.json())
-    .then(r=> console.log(r))
-    }
+  //   componentDidMount(){
+  // fetch("https://app.ticketmaster.com/discovery/v2/events.json?apikey=r7qtrGxNYlU9gXJwaNwTHLuk6NJQa1RR&size=200")
+  //   .then(r=>r.json())
+  //   .then(r=> console.log(r))
+  //   }
 
   logOut = () => {
     localStorage.clear()
@@ -96,6 +97,14 @@ export default class App extends React.Component {
     })
   }
 
+  showDetailsaboutEvent = (event) => {
+    // this.props.history.push('/showdetails')
+    console.log(event)
+    this.setState({
+      singleEventDetail: event
+    })
+}
+
 
   removeFromFavorite = (favorite) => {
     console.log(favorite.id)
@@ -108,6 +117,24 @@ export default class App extends React.Component {
         })
       )
   }
+
+  goEvents = () => {
+    this.setState({
+      singleEventDetail: null
+    })
+  }
+
+  goBack = () => {
+    // e.preventDefault()
+        // this.props.history.goBack()
+    this.setState({
+      singleEventDetail: null
+    })
+  }
+
+  slugUrl = chicken => {
+    return chicken.split(' ').join('-')
+}
 
   addEvent = (newEvent) => {
     return fetch(`http://localhost:3001/events`, {
@@ -130,15 +157,15 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <Header logOut={this.logOut} token={this.state.token} username={this.state.username} />
+        <Header goEvents={this.goEvents} logOut={this.logOut} token={this.state.token} username={this.state.username} goBack={this.goBack}/>
         <Switch>
 
+       
           {/* {this.state.token ? null : <Redirect from='/profile' to='/' />}  */}
-          <Route exact path={'/showdetails'} render={(props) => <ShowDetailsPage {...props} setToken={this.setToken} />} />
-
+          {/* <Route exact path={'/showdetails'} render={(props) => <ShowDetailsPage {...props} singleEventDetail={this.state.singleEventDetail} goBack={this.goBack} setToken={this.setToken} />} /> */}
           <Route exact path={'/'} render={(props) => <LoginForm {...props} setToken={this.setToken} />} />
           <Route exact path={'/signup'} component={(props) => <SignupForm {...props} setToken={this.setToken} />} />
-          <Route exact path={'/events'} render={(props) => <EventContainer {...props} addToFavorites={this.addToFavorites} />} />
+          <Route exact path={'/events'} render={(props) => <EventContainer {...props} showDetailsaboutEvent={this.showDetailsaboutEvent} addToFavorites={this.addToFavorites} />} />
           <Route exact path={'/eventcreate'} render={(props) => <EventCreateForm addEvent={this.addEvent} {...props} />} />
           <Route exact path={'/profile'} render={(props) => <Profile {...props} username={this.state.username} />} />
           <Route exact path={'/favoritevents'} render={(props) => <FavoriteEventList removeFromFavorite={this.removeFromFavorite} {...props} user={this.state.loggedInUserId} setFavoriteEvents={this.setFavoriteEvents} favoriteEvents={this.state.favoriteEvents} />} />
@@ -149,9 +176,23 @@ export default class App extends React.Component {
               containerElement={<div style={{ height: '100%' }} />}
               mapElement={<div style={{ height: '100%' }} />} />} />
           <Route exact path={'/404'} component={FourOhFour} />
+          <Route path='/showdetails/:name'>
+							{this.state.singleEventDetail && (
+								<ShowDetailsPage
+                singleEventDetail={this.state.singleEventDetail}
+									goBack={this.goBack}
+									// loggedInUser={this.state.loggedInUser}
+								/>
+							)}
+						</Route>
           </div>
         </Switch>
-        {this.state.token ? "" : <Redirect to='/' />}
+        {!!this.state.singleEventDetail ? (
+          <Redirect to={`/showdetails/${this.slugUrl(this.state.singleEventDetail.name)}`} />
+        ) : (
+          <Redirect to='/events' />
+          )}
+              {this.state.token ? "" : <Redirect to='/' />}
 
       </div>
     );

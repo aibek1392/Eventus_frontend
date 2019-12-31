@@ -27,6 +27,7 @@ export default class EventList extends Component {
 
         const eventList = searchedEvent.map(event => {  
             return <Event 
+                  showDetailsaboutEvent={this.props.showDetailsaboutEvent}   
                   addToFavorites={this.props.addToFavorites} 
                   key={event.id} 
                   event={event} />
@@ -36,7 +37,10 @@ export default class EventList extends Component {
         return (
             <div>
                  <label style={{marginLeft: "5.5%"}}>
-                        Search: <input  value={this.state.searchTerm} onChange={this.handleChange}  type="search"/>
+                        Search: <input  
+                        value={this.state.searchTerm} 
+                        
+                        onChange={this.handleChange}  type="search"/>
                 </label>
               
             <div className="container">

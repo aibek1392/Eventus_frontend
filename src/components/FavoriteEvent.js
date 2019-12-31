@@ -18,9 +18,9 @@ export default class FavoriteEvent extends Component {
        
         return (
             <div className="item_card">
-                <Card.Body style={{display: "flex", justifyContent: "center"}}>
-                <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={this.props.event.event.image} />
+                <Card.Body>
+                <Card style={{ width: '18rem', heigt: '19px' }}>
+                <Card.Img style={{height:"40%"}} variant="top" src={this.props.event.event.image} />
                 <center>
                 <Card.Text>
                 {this.props.event.event.date}
@@ -31,7 +31,7 @@ export default class FavoriteEvent extends Component {
                 </Card.Text>
                
                 
-                <Card.Title style={{display: "flex" }}>{this.props.event.event.name}</Card.Title>
+                <Card.Title > Name:{this.props.event.event.name}</Card.Title>
                 <Card.Text>
                  Address: {this.props.event.event.description}
                 </Card.Text>
