@@ -60,7 +60,7 @@ onClickFunctionsLogOut = () => {
 						:
 						null
 						} 
-					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>EVENTUS</h1>
+					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>EVENT<span style={{color: "black", backgroundColor: "white", borderRadius: "20%"}}>US</span></h1>
 					{ this.props.token ?
 		   				<h4 style={{marginRight: "5%", border: "1px", color: "white"}} >Wellcome {this.props.username}!</h4>
 

@@ -20,7 +20,7 @@ const SearchBar = (props) => {
       <label>
         
         <Form.Group as={Col} controlId="formGridState">
-            <Form.Label>Filter by Category</Form.Label> {' '}
+            <Form.Label style={{color: "white"}}>Filter by Category</Form.Label> {' '}
         <select  onChange={(event)=> props.stateChangeFilter(event.target.value)}
         value={props.term}>
         <option value="All">All</option>

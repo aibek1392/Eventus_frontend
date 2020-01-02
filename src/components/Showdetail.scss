@@ -14,24 +14,26 @@ body {
 // } 
 .single_card {
     // flex-wrap: nowrap;
-    justify-content: center;
+    // justify-content: center;
     // padding: 5px;
     margin: 0 auto 0 auto;
     background-color: rgba(83, 0, 87, 0.2);
     background-image:url(https://cdn.shopify.com/s/files/1/1619/4221/products/J08295_1024x1024.jpg?v=1576707377); ;
-    flex-direction: column;
+    // flex-direction: row;
     // position: absolute;
+    display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: stretch;
-    align-content: flex-start;
+    // align-items: stretch;
+    // align-content: flex-start;
     // font-size: 25pt;
-    display: flex;
+    // display: flex;
     // flex-wrap: nowrap;
     text-align: center;
     // justify-content: space-around;
-    height: 80%;
-    width: 50%;
+    height: 70%;
+    width: 90%;
     // background-color: #fbf9ff;
     border-radius: 10px;
     // box-shadow: -2rem 0 3rem rgb(2, 8, 88);
@@ -61,6 +63,11 @@ body {
     // transition: 0.4s ease-out;
     
 }
+
+.right_div_container {
+    margin-top: 20px;
+}
+
 .title {
     background-color: rgb(5, 67, 96) !important;
     margin-top: 328px;
@@ -111,14 +118,14 @@ body {
     width: 500px;
     height: auto;
     // position: relative;
-    
+    margin-right: 60%;
     // flex-direction: column;
     // flex-wrap: nowrap;
     // align-items: stretch;
     // align-content: flex-start;
     padding: 10px; 
     border-radius: 10%;
-    margin-top: -10%;
+    margin-top: 0;
     // margin: 0 auto 0 auto;
     // justify-content: center;
 
@@ -142,6 +149,8 @@ body {
 
   }
 
+  
+
 .stroke {
     stroke: white;
     stroke-dasharray: 360;
@@ -161,4 +170,12 @@ svg {
 .col-sm-4.py-2.px-2 {
 width: 50%;
 height: 80%;
+}
+
+.overFlow {
+    height: 55%;
+    overflow-y: scroll;
+    // flex-direction: row;
+    // overflow: visible;
+    border: 2px solid grey;
 }

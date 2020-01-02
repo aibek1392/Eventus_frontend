@@ -36,12 +36,14 @@ export default class EventList extends Component {
 
         return (
             <div>
-                 <label style={{marginLeft: "5.5%"}}>
-                        Search: <input  
+                 <label style={{marginLeft: "5.5%", color: "white"}}>
+                        <span>🔍</span> <input 
+                        style={{borderRadius: "15%"}} 
                         value={this.state.searchTerm} 
-                        
+                        placeholder="...search by name"
                         onChange={this.handleChange}  type="search"/>
                 </label>
+                
               
             <div className="container">
                 <div className="row">

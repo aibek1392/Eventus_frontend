@@ -179,6 +179,8 @@ export default class App extends React.Component {
           <Route path='/showdetails/:name'>
 							{this.state.singleEventDetail && (
 								<ShowDetailsPage
+                username={this.state.username}
+                user={this.state.loggedInUserId}
                 singleEventDetail={this.state.singleEventDetail}
 									goBack={this.goBack}
 									// loggedInUser={this.state.loggedInUser}

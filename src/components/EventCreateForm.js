@@ -14,7 +14,8 @@ class EventCreateForm extends React.Component {
         location: '',
         description: '',
         start_time: '',
-        city: ''
+        city: '',
+        category: ''
     }
 
 
@@ -154,6 +155,20 @@ class EventCreateForm extends React.Component {
                             // onChange={this.convertAddress}
                             name="description"
                             placeholder="...Enter the exact address of the event"
+                            aria-label="Default"
+                            aria-describedby="inputGroup-sizing-default"
+                        />
+                    </InputGroup>
+                    <InputGroup className="mb-3">
+                        <InputGroup.Prepend>
+                            <InputGroup.Text id="inputGroup-sizing-default">Category</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl
+                            value={this.state.category}
+                            onChange={this.onChange}
+                            // onChange={this.convertAddress}
+                            name="category"
+                            placeholder="...Enter  category of the event"
                             aria-label="Default"
                             aria-describedby="inputGroup-sizing-default"
                         />

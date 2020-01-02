@@ -114,7 +114,29 @@
   transition: 0.6s ease-out;
 } */
 
+.event-coments {
+  position: fixed;
+  /* top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto; */
+  /* margin-right: -50%; */
+  /* transform: translate(-20%, -20%); */
+  /* text-align: center; */
+  width: 10%;
+  height: 10%;
+  /* padding-top: 1%; */
+  border: 2px solid #112D4E;
+  background-color: #F9F7F7;
+
+}
+
 .col-sm-4.py-2.px-2 {
 width: 50%;
 height: 80%;
+}
+
+.scroll-list {
+  
+  overflow-y: scroll;
 }
