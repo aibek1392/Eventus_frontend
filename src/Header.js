@@ -36,7 +36,7 @@ onClickFunctionsLogOut = () => {
 				{ this.props.token ?
 						<Link   to='/map'>
 						<Button 
-						variant="primary" 
+						variant="dark" 
 						>Map</Button></Link>
 						:
 						null
@@ -45,7 +45,7 @@ onClickFunctionsLogOut = () => {
 				{ this.props.token ?
 						<Link   to='/favoritevents'>
 						<Button 
-						variant="info" 
+						variant="danger" 
 						>Favorite events </Button></Link>
 						:
 						null
@@ -53,8 +53,8 @@ onClickFunctionsLogOut = () => {
 					{ this.props.token ?
 						<Link   to='/eventcreate'>
 						<Button 
-						variant="danger" 
-						style={{borderRadius: "50%", cursor: 'pointer', padding: '10px 10px', float: 'right'}}
+						variant="dark" 
+						// style={{borderRadius: "50%", cursor: 'pointer', padding: '10px 10px', float: 'right'}}
 
 						>Create Event </Button></Link>
 						:
@@ -72,16 +72,16 @@ onClickFunctionsLogOut = () => {
 						<Button 
 				style={{borderRadius: "50%",border: 'none', cursor: 'pointer', padding: '5px 10px', float: 'right'}}
 
-						variant="light" 
-						><span> 👤</span></Button></Link>
+						variant="dark" 
+						><span>👤</span></Button></Link>
 						:
 						null
 						} 
 						{ this.props.token ?
 						<Link   to='/events'>
 						<Button  onClick={this.props.goEvents}
-						variant="primary" 
-						>All events </Button></Link>
+						variant="dark" 
+						><span>Home</span> </Button></Link>
 						:
 						null
 						} 

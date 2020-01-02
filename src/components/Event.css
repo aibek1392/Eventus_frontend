@@ -137,6 +137,27 @@ height: 80%;
 }
 
 .scroll-list {
-  
+
   overflow-y: scroll;
+}
+
+img {
+  width: 40px;
+}
+
+
+.comment{
+  /* width: 10000000px; */
+  /* justify-content: space-around; */
+  display: flex;
+  flex-direction: row;
+}
+
+.author {
+  display: flex;
+  flex-direction: row;
+}
+
+.author strong {
+  padding-right: 20px;
 }

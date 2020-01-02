@@ -15,7 +15,8 @@ class EventCreateForm extends React.Component {
         description: '',
         start_time: '',
         city: '',
-        category: ''
+        category: '',
+        zip_code: ''
     }
 
 
@@ -61,7 +62,7 @@ class EventCreateForm extends React.Component {
                 <Button
                     onClick={(e) => this.goBack(e)}
                     style={{
-                        width: '29%', color: 'black', marginLeft: '34%',
+                        width: '29%', color: 'black', marginLeft: '35%',
                         justifyContent: "center"
                     }}
                     size='lg'
@@ -124,6 +125,19 @@ class EventCreateForm extends React.Component {
                             onChange={this.onChange}
                             name="date"
                             placeholder="yyyy-mm-dd"
+                            aria-label="Default"
+                            aria-describedby="inputGroup-sizing-default"
+                        />
+                        </InputGroup>
+                         <InputGroup className="mb-3">
+                        <InputGroup.Prepend>
+                            <InputGroup.Text id="inputGroup-sizing-default">zip zode</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl
+                            value={this.state.zip_code}
+                            onChange={this.onChange}
+                            name="zip_code"
+                            placeholder="- - - - -"
                             aria-label="Default"
                             aria-describedby="inputGroup-sizing-default"
                         />

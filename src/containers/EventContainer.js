@@ -30,7 +30,7 @@ export default class EventContainer extends Component {
     componentDidMount(){
         axios.get("http://localhost:3001/events")
           .then(response => { 
-              console.log(response)
+            //   console.log(response)
             const slicedData = response.data.sort((a, b) => b.id - a.id);
             // elems.sort((a, b) => a.id - b.id);
 

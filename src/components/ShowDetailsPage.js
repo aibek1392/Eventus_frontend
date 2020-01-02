@@ -3,7 +3,7 @@ import './Showdetail.scss'
 import { FormControl, InputGroup } from 'react-bootstrap'
 import ReactModal from 'react-modal';
 import './Event.css'
-import Comment from './Comment'
+import CommentEvent from './CommentEvent'
 
 // import { Modal, ModalBody, ModalHeader, ModalFooter, Button } from 'reactstrap';
 // import {VictoryChart, VictoryArea, VictoryTheme, VictoryLabel, VictoryLine} from 'victory';
@@ -31,9 +31,10 @@ export class ShowDetailsPage extends Component {
                 <div >
                     <img  className="image-card mb-4" src={image} />
                    {/* <br/> */}
-                <div className="overFlow " > 
-                <Comment 
+                <div className="overFlow" > 
+                <CommentEvent 
                 // style={{overflow: "visible"}}
+                userID={this.props.loggedInUserId}
                 singleEvent={this.props.singleEventDetail} 
                 userId={this.props.user} 
                 username={this.props.username}
@@ -55,7 +56,7 @@ export class ShowDetailsPage extends Component {
                 </div>
 
 
-                <div style={{}} >
+                <div  >
                     <iframe className="map-div"
                         src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}&q=${location},${city},${deleteSymbolfromAddress}`} />
                 </div>

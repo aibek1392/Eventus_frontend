@@ -1,17 +1,34 @@
 import React, { Component } from 'react'
-import { FormControl, Form, InputGroup, Button } from 'react-bootstrap'
+import {Button, FormControl, Form, InputGroup} from 'react-bootstrap'
 import './Event.css'
+import {  Comment,  Header } from 'semantic-ui-react'
 // import './Showdetail.scss'
 
-export default class Comment extends Component {
+export default class CommentEvent extends Component {
 
 
     state = {
         commentBox: [],
         content: "",
         commentArray: this.props.singleEvent.event_comments
+        // currentUser: {}
     }
 
+
+   
+
+    // componentDidMount() {
+    //     fetch(`http://localhost:3001/users/${this.props.userID}`)
+    //         .then(r => r.json())
+    //         .then(resObj => {
+    //             console.log(resObj)
+    //             if(this.props.userID){
+    //                 this.setState({
+    //                     currentUser: resObj
+    //                 })
+    //             }
+    //         })
+    // }
 
 
     handleChange = (e) => {
@@ -68,15 +85,30 @@ export default class Comment extends Component {
 
     render() {
         const convertedArray = this.state.commentArray.sort((a,b) => b.id - a.id)
-        console.log("fromComment", this.props)
+        console.log("fromComment", this.state)
         const eventComment = convertedArray.map(comment => { 
-            
-            return <div className="scroll-list">
-                        <p>{comment.user.username}:</p>  <h5>{comment.content}</h5>
+            return <div >
+                       
                       
+                            <Comment>
+                            <Comment.Avatar src={comment.user.image} />
+                            <Comment.Content>
+                            <Comment.Author  as='a'><strong>{comment.user.username} says: </strong>
+        <Comment.Text>  {comment.content}</Comment.Text>
+
+                            </Comment.Author>
+                            <Comment.Metadata>
+                                {/* <div>Today at 5:42PM</div> */}
+                            </Comment.Metadata>
+                            
+                            </Comment.Content>
+                            </Comment>
                    </div>
+
         })
         // const convertedArray = eventComment.sort((a,b) => b.id - a.id)
+
+       
 
 
         return (
@@ -90,6 +122,8 @@ export default class Comment extends Component {
                             // value={this.state.categoryè}
                             // onChange={this.onChange}
                             // onChange={this.convertAddress}
+
+
                             name="content"
                             value={this.state.content}
                             placeholder="...Enter  comment"
@@ -110,7 +144,7 @@ export default class Comment extends Component {
                 </Form>
                 <div>
 
-                    <div>
+                    <div  class="comment-box">
                         {eventComment}
                     </div>
 
