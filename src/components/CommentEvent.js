@@ -45,6 +45,7 @@ export default class CommentEvent extends Component {
             headers: {
                 "Content-type": "application/json",
                 "Accept": "application/json"
+
             },
             body: JSON.stringify({
                 content: this.state.content,
@@ -134,7 +135,7 @@ export default class CommentEvent extends Component {
                         <Button
                             id="submit-button"
                             style={{
-                                "font-family": "Special Elite"
+                                fontFamily: "Special Elite"
                             }}
                             type="submit"
                         >
@@ -144,7 +145,7 @@ export default class CommentEvent extends Component {
                 </Form>
                 <div>
 
-                    <div  class="comment-box">
+                    <div >
                         {eventComment}
                     </div>
 

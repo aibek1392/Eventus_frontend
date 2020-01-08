@@ -71,7 +71,7 @@ function Map(props) {
             {/* <img src={selectedEvent.image}/> */}
             <Card.Img variant="top" src={selectedEvent.image} />
             <p>{selectedEvent.category}</p>
-            <button onClick={() => props.handleClick(selectedEvent)}></button>
+            {/* <button onClick={() => props.handleClick(selectedEvent)}></button> */}
 
           </div>
 
@@ -83,4 +83,4 @@ function Map(props) {
   );
 }
 
-export const WrappedMap = withScriptjs(withGoogleMap(Map));
+export const WrappedMap = withScriptjs(withGoogleMap(Map))

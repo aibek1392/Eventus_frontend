@@ -15,7 +15,9 @@ export default class FavoriteEvent extends Component {
     
 
     render() {
-       
+        console.log(this.props)
+        // debugger
+    //    console.log("fromfavorit",this.props.length)
         return (
             <div className="item_card">
                 <Card.Body>

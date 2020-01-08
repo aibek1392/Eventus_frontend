@@ -30,9 +30,9 @@ export default class Event extends Component {
 
                 <div className="event_card" >
                     {/* <Card.Img variant="top" src={this.props.event.image} /> */}
-                        <div onClick={() => this.props.showDetailsaboutEvent(this.props.event)}     className="image-divcard"> 
+                        <div onClick={() => this.props.showDetailsaboutEvent(this.props.event)}  className="image-divcard"> 
                     <Link to='/showdetails'> 
-                            <img src={this.props.event.image} style={{ width: "76%", height: "70%", marginLeft: "-0px" }} />
+                            <img src={this.props.event.image} style={{ width: "76%", height: "50%", marginLeft: "-0px" }} />
                     </Link>
                         </div>
 

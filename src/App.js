@@ -76,7 +76,7 @@ export default class App extends React.Component {
       })
         .then(r => r.json())
         .then(r_json => {
-          console.log(r_json)
+          alert("Event has been added")
           this.setState({
             favoriteEvents: [...this.state.favoriteEvents, r_json]
           })

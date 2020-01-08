@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import FavoriteEvent from '../components/FavoriteEvent'
-// import "./Event.css"
+import "../components/Event.css"
 // import { DropdownButton, Dropdown, Form, Col } from 'react-bootstrap'
 // import { Dropdown } from 'react-bootstrap'
 
@@ -26,6 +26,7 @@ export default class FavoriteEventList extends Component {
 
     
     render() {
+        // console.log(this.props)
         // console.log(this.props.user/)
         const favoriteEvents = this.props.favoriteEvents.map((event, index) => {  
             return <FavoriteEvent user={this.props.user} 

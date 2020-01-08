@@ -73,29 +73,18 @@ export default class EventContainer extends Component {
         // console.log(object)
         return (
             <div >
-            {/* <Route exact path={'/map'} render={(props) => <WrappedMap {...props}  
-              googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}`}
-              loadingElement={<div style={{ height: '100%'}} />}
-              containerElement={<div style={{ height: '100%'}} />}
-              mapElement={<div style={{height: '100%'}} />} />} /> */}
-
-                {/* <WrappedMap
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}`}
-                loadingElement={<div style={{ height: '100%'}} />}
-                containerElement={<div style={{ height: '100%'}} />}
-                mapElement={<div style={{height: '100%'}} />}
-                /> */}
+         
                 
                 <SearchBar stateChangeFilter={this.stateChangeFilter}
-                term={this.state.showFilteredEvents}
-               events={this.state.events} />
+                    term={this.state.showFilteredEvents}
+                    events={this.state.events} />
              
-            <EventList 
-            showDetailsaboutEvent={this.props.showDetailsaboutEvent}
-            addToFavorites={this.props.addToFavorites}
-            events={this.whichEventsToRender()} />
-                   
-            {/* <Route exact path={'/showdetails'} render={(props) => <ShowDetailsPage {...props}  setToken={this.setToken} singleEventDetail={this.state.singleEventDetail} />} /> */}
+                <EventList 
+                showDetailsaboutEvent={this.props.showDetailsaboutEvent}
+                addToFavorites={this.props.addToFavorites}
+                events={this.whichEventsToRender()} />
+                    
+                {/* <Route exact path={'/showdetails'} render={(props) => <ShowDetailsPage {...props}  setToken={this.setToken} singleEventDetail={this.state.singleEventDetail} />} /> */}
 
 
             {/* {this.state.singleEventDetail ? <Redirect to="/showdetails" /> : <Redirect to="/events" />}  */}

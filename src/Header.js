@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import './Header.css'
 
@@ -12,6 +12,8 @@ export default class Header extends React.Component {
 // onClickFunctionsItems = () => {
 // 	this.props.displayItems()
 // }
+
+
 
 goHome = (e) => {
 	e.preventDefault()
@@ -36,7 +38,7 @@ onClickFunctionsLogOut = () => {
 				{ this.props.token ?
 						<Link   to='/map'>
 						<Button 
-						variant="dark" 
+						className="glow-on-hover"  
 						>Map</Button></Link>
 						:
 						null
@@ -45,7 +47,7 @@ onClickFunctionsLogOut = () => {
 				{ this.props.token ?
 						<Link   to='/favoritevents'>
 						<Button 
-						variant="danger" 
+						className="glow-on-hover" 
 						>Favorite events </Button></Link>
 						:
 						null
@@ -53,16 +55,21 @@ onClickFunctionsLogOut = () => {
 					{ this.props.token ?
 						<Link   to='/eventcreate'>
 						<Button 
-						variant="dark" 
+						
+						className="glow-on-hover" 
 						// style={{borderRadius: "50%", cursor: 'pointer', padding: '10px 10px', float: 'right'}}
 
 						>Create Event </Button></Link>
 						:
 						null
 						} 
-					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>EVENT<span style={{color: "black", backgroundColor: "white", borderRadius: "20%"}}>US</span></h1>
+						{/* <NavLink   to='/events'> */}
+					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>EVENT
+					<Link   to='/events'>
+					<span className="glow-on-hover" >US</span></Link></h1>
+							{/* </NavLink> */}
 					{ this.props.token ?
-		   				<h4 style={{marginRight: "5%", border: "1px", color: "white"}} >Wellcome {this.props.username}!</h4>
+		   				<h4 style={{marginRight: "5%", border: "1px", color: "white"}}><strong>Wellcome {this.props.username}!</strong></h4>
 
 						:
 						null
@@ -70,9 +77,9 @@ onClickFunctionsLogOut = () => {
 						{ this.props.token ?
 						<Link   to='/profile'>
 						<Button 
-				style={{borderRadius: "50%",border: 'none', cursor: 'pointer', padding: '5px 10px', float: 'right'}}
+						
 
-						variant="dark" 
+						className="glow-on-hover" 
 						><span>👤</span></Button></Link>
 						:
 						null
@@ -80,7 +87,7 @@ onClickFunctionsLogOut = () => {
 						{ this.props.token ?
 						<Link   to='/events'>
 						<Button  onClick={this.props.goEvents}
-						variant="dark" 
+						className="glow-on-hover" 
 						><span>Home</span> </Button></Link>
 						:
 						null
@@ -88,7 +95,8 @@ onClickFunctionsLogOut = () => {
 						{ this.props.token ?
 						<Link   to='/'>
 						<Button 
-						variant="danger" onClick={ this.onClickFunctionsLogOut }
+						className="glow-on-hover"  
+						onClick={ this.onClickFunctionsLogOut }
 						>LogOut </Button></Link>
 						:
 						null
