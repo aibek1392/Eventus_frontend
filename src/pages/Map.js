@@ -36,12 +36,16 @@ function Map(props) {
     //     </div>
 
     <GoogleMap
+    
       // style={{ height: '100vh', width: '100%' }}
       // width="120" 
       // height="120"
+
       defaultZoom={7}
       defaultCenter={{ lat: 39, lng: -106 }}
     >
+      
+      
 
       {events.map(event => (
         <Marker
@@ -65,14 +69,15 @@ function Map(props) {
           }}
           onCloseClick={() => setSelectedEvent(null)}
         >
+          
           <div className="container mx-auto" style={{ width: '20rem' }} >
-            <h1>22</h1>
+            
             <h2>{selectedEvent.name}</h2>
             {/* <img src={selectedEvent.image}/> */}
             <Card.Img variant="top" src={selectedEvent.image} />
             <p>{selectedEvent.category}</p>
             {/* <button onClick={() => props.handleClick(selectedEvent)}></button> */}
-
+          
           </div>
 
         </InfoWindow>

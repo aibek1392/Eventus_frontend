@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Header.css'
+import '../Styling/Header.css'
 import '../App.css'
 import Geocode from "react-geocode";
 import { Button, Form, InputGroup, FormControl, Col } from 'react-bootstrap'

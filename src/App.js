@@ -1,21 +1,19 @@
 import React from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom'
-import LoginForm from './components/LoginForm'
-import FourOhFour from './FourOhFour'
-import Header from './Header'
-import SignupForm from './components/SignupForm'
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
+import LoginForm from './pages/LoginForm'
+import FourOhFour from './pages/FourOhFour'
+import Header from './pages/Header'
+import SignupForm from './pages/SignupForm'
 import EventContainer from './containers/EventContainer'
-import Profile from './containers/Profile'
-import EventCreateForm from './components/EventCreateForm';
-import axios from 'axios'
+import Profile from './pages/Profile'
+import EventCreateForm from './pages/EventCreateForm';
 import FavoriteEventList from './containers/FavoriteEventList'
-import { WrappedMap } from './containers/Map'
-import ShowDetailsPage from './components/ShowDetailsPage'
-
+import { WrappedMap } from './pages/Map'
+import ShowDetailsPage from './pages/ShowDetailsPage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-export default class App extends React.Component {
+class App extends React.Component {
 
 
   state = {
@@ -25,6 +23,8 @@ export default class App extends React.Component {
     singleEventDetail: null,
     favoriteEvents: []
   }
+
+  
 
 
 
@@ -76,14 +76,14 @@ export default class App extends React.Component {
       })
         .then(r => r.json())
         .then(r_json => {
-          alert("Event has been added")
+          alert("Event has been added!!!")
           this.setState({
             favoriteEvents: [...this.state.favoriteEvents, r_json]
           })
         }
         )
     } else {
-      alert("You already have this event")
+      alert("You already have this event 🛑")
     }
   }
 
@@ -119,14 +119,15 @@ export default class App extends React.Component {
   }
 
   goEvents = () => {
+    this.props.history.push('/events')
     this.setState({
       singleEventDetail: null
     })
   }
 
-  goBack = () => {
+  goBackToEvents = () => {
     // e.preventDefault()
-    // this.props.history.goBack()
+    this.props.history.goBack()
     this.setState({
       singleEventDetail: null
     })
@@ -148,19 +149,16 @@ export default class App extends React.Component {
       })
     })
 
-
-
   }
 
-  render() {
-    // console.log(process.env.REACT_APP_GOOGLE_MAPS_KEY)
+  
 
+  render() {
     return (
       <div>
+       
         <Header goEvents={this.goEvents} logOut={this.logOut} token={this.state.token} username={this.state.username} goBack={this.goBack} />
         <Switch>
-
-
           {/* {this.state.token ? null : <Redirect from='/profile' to='/' />}  */}
           {/* <Route exact path={'/showdetails'} render={(props) => <ShowDetailsPage {...props} singleEventDetail={this.state.singleEventDetail} goBack={this.goBack} setToken={this.setToken} />} /> */}
           <Route exact path={'/'} render={(props) => <LoginForm {...props} setToken={this.setToken} />} />
@@ -169,13 +167,6 @@ export default class App extends React.Component {
           <Route exact path={'/eventcreate'} render={(props) => <EventCreateForm addEvent={this.addEvent} {...props} />} />
           <Route exact path={'/profile'} render={(props) => <Profile {...props} username={this.state.username} userID={this.state.loggedInUserId} />} />
           <Route exact path={'/favoritevents'} render={(props) => <FavoriteEventList removeFromFavorite={this.removeFromFavorite} {...props} user={this.state.loggedInUserId} setFavoriteEvents={this.setFavoriteEvents} favoriteEvents={this.state.favoriteEvents} />} />
-          <div style={{ width: '100vw', height: '70vw' }}>
-            <Route exact path={'/map'} render={(props) => <WrappedMap {...props}
-              googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}`}
-              loadingElement={<div style={{ height: '100%' }} />}
-              containerElement={<div style={{ height: '100%' }} />}
-              mapElement={<div style={{ height: '100%' }} />} />} />
-            <Route exact path={'/404'} component={FourOhFour} />
             <Route path='/showdetails/:name'>
               {this.state.singleEventDetail && (
                 <ShowDetailsPage
@@ -183,11 +174,18 @@ export default class App extends React.Component {
                   username={this.state.username}
                   user={this.state.loggedInUserId}
                   singleEventDetail={this.state.singleEventDetail}
-                  goBack={this.goBack}
+                  goBackToEvents={this.goBackToEvents}
                 // loggedInUser={this.state.loggedInUser}
                 />
               )}
             </Route>
+          <div style={{ width: '100vw', height: '70vw' }}>
+            <Route exact path={'/map'} render={(props) => <WrappedMap {...props}
+              googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}`}
+              loadingElement={<div style={{ height: '100%' }} />}
+              containerElement={<div style={{ height: '100%' }} />}
+              mapElement={<div style={{ height: '100%' }} />} />} />
+            <Route exact path={'/404'} component={FourOhFour} />
           </div>
         </Switch>
         {!!this.state.singleEventDetail ? (
@@ -203,3 +201,4 @@ export default class App extends React.Component {
 }
 
 
+export default withRouter(App);

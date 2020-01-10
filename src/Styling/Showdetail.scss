@@ -13,44 +13,27 @@ body {
 // 	display: flex;
 // } 
 .single_card {
-    // flex-wrap: nowrap;
-    // justify-content: center;
-    // padding: 5px;
-    margin: 0 auto 0 auto;
-    background-color: rgba(83, 0, 87, 0.2);
-    background-image:url(https://cdn.shopify.com/s/files/1/1619/4221/products/J08295_1024x1024.jpg?v=1576707377); ;
-    // flex-direction: row;
-    // position: absolute;
+    // margin: 0 auto 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    // align-items: stretch;
-    // align-content: flex-start;
-    // font-size: 25pt;
-    // display: flex;
-    // flex-wrap: nowrap;
+    // text-align: center;
+    // height: 80%;
+    // width: 90%;
+    // border-radius: 10px;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/photo-1519751138087-5bf79df62d5b.jpeg);
+    background-size: cover;
+    background-position:  center;
+    background-repeat: no-repeat;
+    overflow: hidden;
     text-align: center;
-    // justify-content: space-around;
-    height: 80%;
-    width: 90%;
-    // background-color: #fbf9ff;
-    border-radius: 10px;
-    // box-shadow: -2rem 0 3rem rgb(2, 8, 88);
-    // box-sizing: border-box;
     
-    // margin-top: 30px;
-    // margin-left: 10%;
-    // transition: 0.4s ease-out;
+}
 
-  
-    
-    
-}
-.single_card:not(:first-child) {
-    margin-left: 50px;
-    
-}
+
 // .single_card:hover {
     // transform: translateY(-20px);
     // transition: 0.4s ease-out;
@@ -175,7 +158,8 @@ height: 80%;
 
 .overFlow {
     margin-bottom: 20px;
-    height: 48%;
+    height: 35%;
+    background-color: white;
     overflow-y: scroll;
     flex-direction: row;
     // overflow: visible;

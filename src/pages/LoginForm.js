@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import '../LoginForm.css'
+import '../Styling/LoginForm.css'
 
 
 

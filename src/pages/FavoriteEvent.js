@@ -2,13 +2,7 @@ import React, { Component } from 'react'
 import { Card } from 'react-bootstrap'
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
-// import  './Styling.scss'
-
-// import { Button } from 'react-bootstrap'
-// import { Image } from 'react-bootstrap'
-// import 'bootstrap/dist/css/bootstrap.css'
-
-import './Event.css'
+import '../Styling/Event.css'
 export default class FavoriteEvent extends Component {
     
 

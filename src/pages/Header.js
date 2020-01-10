@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-import './Header.css'
-
+import '../Styling/Header.css'
+import Clock from './Clock'
 export default class Header extends React.Component {
-
 // onClickFunctionsCart = () => {
 // 	this.props.displayCart()
 // }
@@ -42,7 +41,7 @@ onClickFunctionsLogOut = () => {
 						>Map</Button></Link>
 						:
 						null
-						} 
+					} 
 				
 				{ this.props.token ?
 						<Link   to='/favoritevents'>
@@ -51,8 +50,8 @@ onClickFunctionsLogOut = () => {
 						>Favorite events </Button></Link>
 						:
 						null
-						} 
-					{ this.props.token ?
+					} 
+						{ this.props.token ?
 						<Link   to='/eventcreate'>
 						<Button 
 						
@@ -63,10 +62,15 @@ onClickFunctionsLogOut = () => {
 						:
 						null
 						} 
-						{/* <NavLink   to='/events'> */}
-					<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>EVENT
-					<Link   to='/events'>
-					<span className="glow-on-hover" >US</span></Link></h1>
+							
+							
+						{ this.props.token ?
+						<h1 style={{color: 'white', textAlign: 'center', width: '150%'}}>EVENT
+						<Link   to='/events'>
+						<span className="glow-on-hover" >US</span></Link></h1>
+						:
+						null
+						} 
 							{/* </NavLink> */}
 					{ this.props.token ?
 		   				<h4 style={{marginRight: "5%", border: "1px", color: "white"}}><strong>Wellcome {this.props.username}!</strong></h4>
@@ -85,10 +89,10 @@ onClickFunctionsLogOut = () => {
 						null
 						} 
 						{ this.props.token ?
-						<Link   to='/events'>
+						// <Link   to='/events'>
 						<Button  onClick={this.props.goEvents}
 						className="glow-on-hover" 
-						><span>Home</span> </Button></Link>
+						><span>Home</span> </Button>
 						:
 						null
 						} 

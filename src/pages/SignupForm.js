@@ -1,5 +1,5 @@
 import React from 'react'
-import './SignupForm.css'
+import '../Styling/SignupForm.css'
 import { Button } from 'react-bootstrap'
 
 
@@ -10,7 +10,7 @@ export default class SignupForm extends React.Component {
 		username: "",
 		password: "",
 		errors: [],
-		image: "https://icon-library.net/images/default-profile-icon/default-profile-icon-24.jpg",
+		image: "https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png",
 		location: ""
 	}
 
@@ -86,7 +86,7 @@ export default class SignupForm extends React.Component {
 						value={this.state.password} />
 					<label htmlFor='sign_up_location'>Location</label>
 					<input id="sign_up_location"
-						placeholder="...Enter your zip code"
+						placeholder="...Enter your city"
 						type="text"
 						onChange={this.onChange}
 						name="location"

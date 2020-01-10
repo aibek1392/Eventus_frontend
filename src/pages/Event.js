@@ -7,18 +7,16 @@ import { Button } from 'react-bootstrap'
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 // import '../Header.css'
-import './Styling.scss'
-// import { Button } from 'react-bootstrap'
-// import { Image } from 'react-bootstrap'
-// import 'bootstrap/dist/css/bootstrap.css'
+import '../Styling/Styling.scss'
 
-// import './Event.css'
+
+
 export default class Event extends Component {
 
+    
 
-    // showDetail = () => {
-    //     this.props.history.push('/showdetails')
-    // }
+
+       
 
     render() {
         // console.log(this.props.event.latitude)
@@ -26,7 +24,7 @@ export default class Event extends Component {
         return (
 
             <div className="container" style={{ width: '45%', marginRight: "35px" }}   >
-
+               
 
                 <div className="event_card" >
                     {/* <Card.Img variant="top" src={this.props.event.image} /> */}
@@ -61,7 +59,7 @@ export default class Event extends Component {
                     <button>Show details</button>
               </Link></div> */}
 
-
+          
             </div>
 
 

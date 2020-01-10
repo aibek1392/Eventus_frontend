@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-import Event from './Event'
-// import "./Event.css"
-// import './Styling.scss'
-import { DropdownButton, Dropdown, Form, Col } from 'react-bootstrap'
-// import { Dropdown } from 'react-bootstrap'
+import Event from '../pages/Event'
 
 
 export default class EventList extends Component {
@@ -23,6 +19,7 @@ export default class EventList extends Component {
 
     render() {
 
+        
         const searchedEvent = this.props.events.filter(searchedEvent =>  searchedEvent.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
         const eventList = searchedEvent.map(event => {  
@@ -36,9 +33,8 @@ export default class EventList extends Component {
 
         return (
             <div>
-                 <label style={{marginLeft: "5.5%", color: "white"}}>
-                        <span>🔍</span> <input 
-                        style={{borderRadius: "15%"}} 
+                 <label style={{marginLeft: "11.7%", color: "white"}}>
+                        <input 
                         value={this.state.searchTerm} 
                         placeholder="...search by name"
                         onChange={this.handleChange}  type="search"/>

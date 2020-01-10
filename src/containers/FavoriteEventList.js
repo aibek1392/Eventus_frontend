@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import FavoriteEvent from '../components/FavoriteEvent'
-import "../components/Event.css"
+import FavoriteEvent from '../pages/FavoriteEvent'
+import "../Styling/Event.css"
 // import { DropdownButton, Dropdown, Form, Col } from 'react-bootstrap'
 // import { Dropdown } from 'react-bootstrap'
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import EventList from '../components/EventList'
+import EventList from './EventList'
 import axios from 'axios'
-import SearchBar from '../components/SearchBar'
+import SearchBar from '../pages/SearchBar'
 import {Route, Redirect, Switch} from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-import ShowDetailsPage from '../components/ShowDetailsPage'
+import ShowDetailsPage from '../pages/ShowDetailsPage'
 
 
 export default class EventContainer extends Component {
