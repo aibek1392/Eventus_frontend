@@ -19,15 +19,6 @@ const options = {
 
 export class ShowDetailsPage extends Component {
 
-
-
-
-
-
-
-
-
-
     render() {
 
         console.log("hellp from single", this.props.singleEvent)
@@ -38,8 +29,8 @@ export class ShowDetailsPage extends Component {
             <div className="single_card">
                 <React.Fragment>
                     <Provider template={AlertTemplate} {...options}>
-                        <div >
-                            <img className="image-card mb-4" src={image} />
+                        <div className="img_div" >
+                            <img className="image-card " src={image} />
                             {/* <br/> */}
                             <div className="overFlow" >
                                 <CommentEvent
@@ -55,13 +46,16 @@ export class ShowDetailsPage extends Component {
 
 
                         <div className="right_div_container">
+                            <Button style={{marginBottom: "20px",width: "30%"}}
+                             variant="warning"
+                              onClick={this.props.goBackToEvents}>GO back to events</Button>
                             <strong>
-                                <div>
-                                    <h2 >Name:{name}</h2>
-                                    <h2 style={{ textShadow: "3px 1px white" }}>Address: {deleteSymbolfromAddress}, {location}, {city}</h2>
-                                    <h2 style={{ textShadow: "3px 1px white" }}>Start Time:{start_time}</h2>
-                                    <h2 style={{ textShadow: "3px 1px white" }}>Date: {date}</h2>
-                                    <h2 style={{ textShadow: "3px 1px white" }}>Category: {category}</h2>
+                                <div style={{backgroundColor: "black"}}>
+                                    <h2 style={{ color: "white" }}>Name:{name}</h2>
+                                    <h2 style={{ color: "white" }}>Address: {deleteSymbolfromAddress}, {location}, {city}</h2>
+                                    <h2 style={{ color: "white" }}>Start Time:{start_time}</h2>
+                                    <h2 style={{ color: "white" }}>Date: {date}</h2>
+                                    <h2 style={{ color: "white" }}>Category: {category}</h2>
 
                                 </div>
                             </strong>
@@ -72,11 +66,10 @@ export class ShowDetailsPage extends Component {
 
 
                             <div  >
-                                <h4>Get directions:</h4>
+                                <h4 style={{ color: "white" }}>Get directions:</h4>
                                 <iframe className="map-div"
                                     src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}&q=${location},${city},${deleteSymbolfromAddress}`} />
                             </div>
-                            <Button variant="danger" onClick={this.props.goBackToEvents}>GO back to events</Button>
                         </div>
                     </Provider>
                 </React.Fragment>

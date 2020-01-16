@@ -29,6 +29,7 @@
   /* position: relative; */
   /* top: 0px; */
   padding: 15px;
+  
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -84,14 +85,14 @@
 }
 
 .header_button {
- 	border: none;
+ 	/* border: none; */
   	background-image: radial-gradient(rgb(250, 250, 250, 1),  rgb(225, 225, 225, 1) );
 	color: #000;
 	text-align: center;
 	text-decoration: none;
 	font-size: 1rem;
 	display: wrap;
-	border-radius: 5px;
+	/* border-radius: 5px; */
 	flex-wrap: wrap;
 	margin-left:0.25rem; margin-right:0.25rem; margin-top:0.25rem; margin-bottom:0.25rem;
 	padding-left:0.25rem; padding-right:0.25rem; padding-top:0.25rem; padding-bottom:0.25rem;
@@ -101,11 +102,11 @@
 .header_button:hover {
 	border: none;
 	color: #fff;
-	background: radial-gradient(rgba(158, 158, 158, 1), rgba(66, 66, 66, 1));
+	background: radial-gradient(rgb(250, 22, 6), rgba(66, 66, 66, 1));
 	text-align: center;
 	text-decoration: none;
 	font-size: 1rem;
-	border-radius: 25px;
+	/* border-radius: 25px; */
 	margin-left:0.25rem; margin-right:0.25rem; margin-top:0.25rem; margin-bottom:0.25rem;
 	padding-left:0.25rem; padding-right:0.25rem; padding-top:0.25rem; padding-bottom:0.25rem;
 
@@ -129,10 +130,10 @@
 	outline: none;
 	color: #fff;
 	background: #111;
-	cursor: pointer;
+	/* cursor: pointer; */
 	position: relative;
 	z-index: 0;
-	border-radius: 10px;
+	/* border-radius: 10px; */
   }
   .glow-on-hover:before {
 	content: '';
@@ -148,7 +149,7 @@
 	animation: glowing 20s linear infinite;
 	opacity: 0;
 	transition: opacity .3s ease-in-out;
-	border-radius: 10px;
+	/* border-radius: 10px; */
   }
   .glow-on-hover:active {
 	color: #000
@@ -165,7 +166,7 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: rgba(148, 220, 238, 0.007);
+	background: rgba(12, 12, 12, 0.831);
 	left: 0;
 	top: 0;
 	border-radius: 10px;

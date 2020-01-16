@@ -69,7 +69,7 @@ export default class LogIn extends React.Component {
         this.state.logIn
         ?
         <div className="login_wrapper">
-          <h2>Log In</h2>
+          <h2>Login</h2>
           <form onSubmit={ this.onSubmitFunctions }>
             <label  htmlFor="log_in_username">Username</label>
             <input  id="log_in_username"
@@ -90,7 +90,7 @@ export default class LogIn extends React.Component {
             <input className="login_button" type="submit" />
           </form>
           <Button
-          style={{ backgroundColor: 'black'}}
+          style={{ backgroundColor: '#FF1493', color: "white"}}
            variant="outline-danger" onClick={ this.onClickFunctionsSignUp }>Sign Up</Button>
         </div>
         :

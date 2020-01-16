@@ -4,7 +4,7 @@ import '../Styling/Event.css'
 import { Comment, Header } from 'semantic-ui-react'
 import { withAlert } from "react-alert";
 import { ActionCableConsumer } from "react-actioncable-provider";
-import  Clock from '../pages/Clock'
+import Clock from '../pages/Clock'
 
 
 class CommentEvent extends Component {
@@ -43,21 +43,20 @@ class CommentEvent extends Component {
 
 
     postComment = eventComment => {
+        console.log(eventComment.content)
         this.setState({
             commentArray: [...this.state.commentArray, eventComment],
             content: ""
         })
-        this.props.alert.show("new comment received");
+        this.props.alert.show(<div style={{ color: 'white' }}>{eventComment.content}</div>);
     }
 
 
     render() {
         const convertedArray = this.state.commentArray.sort((a, b) => b.id - a.id)
-        console.log("fromComment", this.state)
+        // console.log("fromComment", this.state)
         const eventComment = convertedArray.map(comment => {
-            return <div >
-
-
+            return <div>
                 <Comment>
                     <Comment.Avatar src={comment.user.image} />
                     <Comment.Content>
@@ -66,7 +65,7 @@ class CommentEvent extends Component {
 
                         </Comment.Author>
                         <Comment.Metadata>
-    
+
                         </Comment.Metadata>
 
                     </Comment.Content>

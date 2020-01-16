@@ -16,18 +16,20 @@ body {
     // margin: 0 auto 0 auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    position: relative;
+    // flex-wrap: nowrap;
     justify-content: center;
-    // text-align: center;
-    // height: 80%;
+    text-align: center;
+    // height: 100%;
     // width: 90%;
     // border-radius: 10px;
     width: 100vw;
     height: 100vh;
+    // background-color: black;
     background-image: url(../images/photo-1519751138087-5bf79df62d5b.jpeg);
     background-size: cover;
     background-position:  center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     overflow: hidden;
     text-align: center;
     
@@ -40,16 +42,17 @@ body {
     
 // }
 .single_card:hover ~ .card {
-    height: 90%;
-    position: relative;
-    left: 50px;
+    height: 100%;
+    // position: relative;
+    // left: 50px;
     // transition: 0.4s ease-out;
     
 }
 
 .right_div_container {
     margin-top: 5%;
-    // margin-right: 0%;
+    margin-right: 2%;
+    padding-left: 10%;
 }
 
 .title {
@@ -86,7 +89,8 @@ body {
     transition: 0.6s ease-out;
 }
 .single_card:hover .filledbar {
-    width: 120px;
+    // width: 120px;
+    height: 100%;
     // transition: 0.4s ease-out;
     
 }
@@ -97,11 +101,11 @@ body {
 }
 
 .image-card {
-    box-shadow: -3rem 0 3rem rgba(2, 8, 88,2);
+    box-shadow: -2rem 0 3rem rgb(182, 183, 187);
     // display: flex;
-    width: 500px;
-    height: auto;
-    // position: relative;
+    width: 65vh;
+    height: 80%;
+    position: relative;
     margin-right: 60%;
     // flex-direction: column;
     // flex-wrap: nowrap;
@@ -116,24 +120,13 @@ body {
   }
   .map-div {
       
-    // box-shadow: -2rem 0 3rem rgb(2, 8, 88);
-    // display: flex;
-    // width: 100%;
-    // height: auto;
-    // position: relative;
-    
-    // // flex-direction: row;
-    // flex-wrap: nowrap;
-    // align-items: stretch;
-    // align-content: flex-start;
-    // // padding: 50px; 
     margin: 0 auto 0 auto;
-    // border-radius: 60px;
-    // justify-content: center;
 
   }
 
-  
+.img_div {
+    height: 50%;
+}
 
 .stroke {
     stroke: white;
@@ -145,11 +138,11 @@ svg {
     fill: #17141d;
     // stroke-width: 2px;
 }
-.single_card:hover .stroke {
-    stroke-dashoffset: 100;
-    // transition: 0.6s ease-out;
+// .single_card:hover .stroke {
+//     // stroke-dashoffset: 100;
+//     // transition: 0.6s ease-out;
     
-}
+// }
 
 .col-sm-4.py-2.px-2 {
 width: 50%;
@@ -158,10 +151,12 @@ height: 80%;
 
 .overFlow {
     margin-bottom: 20px;
-    height: 35%;
+    height: 75% ;
+    position: relative;
     background-color: white;
     overflow-y: scroll;
     flex-direction: row;
+    width: 100%;
     // overflow: visible;
     border: 2px solid grey;
 }

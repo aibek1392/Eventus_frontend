@@ -10,7 +10,10 @@ import EventCreateForm from './pages/EventCreateForm';
 import FavoriteEventList from './containers/FavoriteEventList'
 import { WrappedMap } from './pages/Map'
 import ShowDetailsPage from './pages/ShowDetailsPage'
+import EditProfile from './pages/EditProfile'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { NavLink } from 'react-bootstrap';
 
 
 class App extends React.Component {
@@ -21,15 +24,23 @@ class App extends React.Component {
     loggedInUserId: localStorage.userId,
     username: localStorage.username,
     singleEventDetail: null,
+    backClick: false,
     favoriteEvents: []
   }
 
+  
+  newUser = (data) => {
+   this.setState({
+     username: data
+     
+   })
+   localStorage.username = data
+  }
   
 
 
 
   setToken = ({ token, user_id, username }) => {
-
     localStorage.token = token
     localStorage.userId = user_id
     localStorage.username = username
@@ -98,8 +109,7 @@ class App extends React.Component {
   }
 
   showDetailsaboutEvent = (event) => {
-    // this.props.history.push('/showdetails')
-    console.log(event)
+   
     this.setState({
       singleEventDetail: event
     })
@@ -127,10 +137,14 @@ class App extends React.Component {
 
   goBackToEvents = () => {
     // e.preventDefault()
-    this.props.history.goBack()
-    this.setState({
-      singleEventDetail: null
-    })
+    console.log('hello')
+    if (this.state.singleEventDetail){
+      this.props.history.goBack()
+      this.setState({
+        singleEventDetail: null
+      })
+    }
+
   }
 
   slugUrl = chicken => {
@@ -156,7 +170,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-       
+        {console.log(this.state.singleEventDetail)}
         <Header goEvents={this.goEvents} logOut={this.logOut} token={this.state.token} username={this.state.username} goBack={this.goBack} />
         <Switch>
           {/* {this.state.token ? null : <Redirect from='/profile' to='/' />}  */}
@@ -167,6 +181,8 @@ class App extends React.Component {
           <Route exact path={'/eventcreate'} render={(props) => <EventCreateForm addEvent={this.addEvent} {...props} />} />
           <Route exact path={'/profile'} render={(props) => <Profile {...props} username={this.state.username} userID={this.state.loggedInUserId} />} />
           <Route exact path={'/favoritevents'} render={(props) => <FavoriteEventList removeFromFavorite={this.removeFromFavorite} {...props} user={this.state.loggedInUserId} setFavoriteEvents={this.setFavoriteEvents} favoriteEvents={this.state.favoriteEvents} />} />
+          <Route exact path="/myprofile/edit" render={(props) => <EditProfile newUser={this.newUser} {...props} userID={this.state.loggedInUserId} />} />
+
             <Route path='/showdetails/:name'>
               {this.state.singleEventDetail && (
                 <ShowDetailsPage
@@ -175,7 +191,6 @@ class App extends React.Component {
                   user={this.state.loggedInUserId}
                   singleEventDetail={this.state.singleEventDetail}
                   goBackToEvents={this.goBackToEvents}
-                // loggedInUser={this.state.loggedInUser}
                 />
               )}
             </Route>
@@ -187,13 +202,16 @@ class App extends React.Component {
               mapElement={<div style={{ height: '100%' }} />} />} />
             <Route exact path={'/404'} component={FourOhFour} />
           </div>
+          
         </Switch>
-        {!!this.state.singleEventDetail ? (
+        
+        {this.state.singleEventDetail ? (
           <Redirect to={`/showdetails/${this.slugUrl(this.state.singleEventDetail.name)}`} />
         ) : (
-            <Redirect to='/events' />
+          this.goBackToEvents()
           )}
         {this.state.token ? "" : <Redirect to='/' />}
+}
 
       </div>
     );

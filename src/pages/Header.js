@@ -92,13 +92,14 @@ onClickFunctionsLogOut = () => {
 						// <Link   to='/events'>
 						<Button  onClick={this.props.goEvents}
 						className="glow-on-hover" 
-						><span>Home</span> </Button>
+						><span>Events</span> </Button>
 						:
 						null
 						} 
 						{ this.props.token ?
 						<Link   to='/'>
 						<Button 
+						style={{backgroundColor: "#FF1493"}}
 						className="glow-on-hover"  
 						onClick={ this.onClickFunctionsLogOut }
 						>LogOut </Button></Link>

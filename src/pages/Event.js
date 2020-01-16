@@ -19,8 +19,11 @@ export default class Event extends Component {
        
 
     render() {
-        // console.log(this.props.event.latitude)
-
+        // console.log(this.props.event.start_time)
+        // debugger
+                // const time = this.props.event.start_time.slice(10)
+                // const start_time = this.props.event.start_time.slice(10).slice(0, 8)
+        const dateLength = this.props.event.date.slice(0, 10)
         return (
 
             <div className="container" style={{ width: '45%', marginRight: "35px" }}   >
@@ -30,19 +33,21 @@ export default class Event extends Component {
                     {/* <Card.Img variant="top" src={this.props.event.image} /> */}
                         <div onClick={() => this.props.showDetailsaboutEvent(this.props.event)}  className="image-divcard"> 
                     <Link to='/showdetails'> 
-                            <img src={this.props.event.image} style={{ width: "76%", height: "50%", marginLeft: "-0px" }} />
+                            <img src={this.props.event.image} style={{ width: "86%", height: "80%", marginLeft: "10%" }} />
                     </Link>
                         </div>
+                        <div><Fab onClick={() => this.props.addToFavorites(this.props.event)} aria-label="add" color="secondary" style={{ marginTop: "55%" }}> <AddIcon /></Fab></div>
+                    
 
                     {/* <Card.Title style={{marginTop: "10px"}}><center>{this.props.event.name}</center></Card.Title> */}
                     <div className="title">
                         <h3>{this.props.event.name}</h3>
-                        <h3>{this.props.event.date}</h3>
-                        <h3>{this.props.event.start_time}</h3>
+                        <h3>Date: {" "} {dateLength}</h3>
+                        
+                        <h3>Start time:{" "}  {this.props.event.start_time}</h3>
 
 
                     </div>
-                    <Fab onClick={() => this.props.addToFavorites(this.props.event)} aria-label="add" color="secondary" style={{ marginTop: "55%" }}> <AddIcon /></Fab>
                     {/* <div className="bar"> */}
                     {/* <div className="emptybar"></div>
                 <div className="filledbar"></div> */}

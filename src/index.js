@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import {ActionCableProvider} from 'react-actioncable-provider';
 
 
+
   
 ReactDOM.render(
       <ActionCableProvider url = 'ws://localhost:3001/cable'>

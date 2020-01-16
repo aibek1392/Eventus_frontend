@@ -33,7 +33,7 @@ export default class EventList extends Component {
 
         return (
             <div>
-                 <label style={{marginLeft: "11.7%", color: "white"}}>
+                 <label style={{marginLeft: "8.5%", color: "white"}}>
                         <input 
                         value={this.state.searchTerm} 
                         placeholder="...search by name"

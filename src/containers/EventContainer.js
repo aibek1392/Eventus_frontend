@@ -14,18 +14,16 @@ export default class EventContainer extends Component {
    
     state = {
         events: [],
-        showFilteredEvents: "All",
-        // singleEventDetail: null
-        
+        showFilteredEvents: "All"
     }
 
-    showDetailsaboutEvent = (e) => {
-        this.props.history.push('/showdetails')
-        console.log(e)
-        this.setState({
-            singleEventDetail: e
-        })
-    }
+    // showDetailsaboutEvent = (e) => {
+    //     this.props.history.push('/showdetails')
+    //     console.log(e)
+    //     this.setState({
+    //         singleEventDetail: e
+    //     })
+    // }
 
     componentDidMount(){
         axios.get("http://localhost:3001/events")
