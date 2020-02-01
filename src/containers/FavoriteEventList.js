@@ -26,10 +26,9 @@ export default class FavoriteEventList extends Component {
 
     
     render() {
-        // console.log(this.props)
-        // console.log(this.props.user/)
         const favoriteEvents = this.props.favoriteEvents.map((event, index) => {  
             return <FavoriteEvent user={this.props.user} 
+            showDetailsaboutEvent={this.props.showDetailsaboutEvent}
             setFavoriteEvents={this.props.setFavoriteEvents} 
             addToFavorites={this.props.addToFavorites} 
              key={index} event={event} 

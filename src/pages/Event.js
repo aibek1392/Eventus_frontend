@@ -23,7 +23,8 @@ export default class Event extends Component {
         // debugger
                 // const time = this.props.event.start_time.slice(10)
                 // const start_time = this.props.event.start_time.slice(10).slice(0, 8)
-        const dateLength = this.props.event.date.slice(0, 10)
+        // const event = this.props.event.date.slice(0, 10)
+        const event = this.props.event
         return (
 
             <div className="container" style={{ width: '45%', marginRight: "35px" }}   >
@@ -41,10 +42,10 @@ export default class Event extends Component {
 
                     {/* <Card.Title style={{marginTop: "10px"}}><center>{this.props.event.name}</center></Card.Title> */}
                     <div className="title">
-                        <h3>{this.props.event.name}</h3>
-                        <h3>Date: {" "} {dateLength}</h3>
+                        <h3>{event.name}</h3>
+                        <h3>Date: {" "} {event.date}</h3>
                         
-                        <h3>Start time:{" "}  {this.props.event.start_time}</h3>
+                        <h3>Start time:{" "}  {event.start_time}</h3>
 
 
                     </div>

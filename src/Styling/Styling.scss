@@ -13,9 +13,11 @@
 		// 	display: flex;
 		// } 
 		.event_card {
-			flex-wrap: no-wrap;
+			border-radius: 10px !important;
+			flex-wrap: nowrap;
 			justify-content: center;
 			// padding: 5px;
+			
 			margin: 50px;
 			// width: 30%;
 			flex-direction: row;
@@ -36,7 +38,7 @@
 			box-shadow: -2rem 0 3rem rgb(182, 183, 187);
 			// box-sizing: border-box;
 			margin-top: 30px;
-			margin-left: 30px;
+			margin-left: 50px;
 			transition: 0.4s ease-out;
 			position: relative;
 			left: 0px;
@@ -80,6 +82,7 @@
 			margin-left: -13%;
 			// margin-right: -15%;
 			height: 20;
+			border-radius: 10px !important;
 		}
 		.bar {
 			position: absolute;

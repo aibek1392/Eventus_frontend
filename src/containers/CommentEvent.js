@@ -54,18 +54,24 @@ class CommentEvent extends Component {
 
     render() {
         const convertedArray = this.state.commentArray.sort((a, b) => b.id - a.id)
-        // console.log("fromComment", this.state)
+        console.log("fromComment", this.props.singleEvent)
+
+        // const createdTime = this.state.commentArray.map(comment => {
+        //     return comment.created_at.replace("T", "")
+        // })
+
         const eventComment = convertedArray.map(comment => {
-            return <div>
+            return <div key={comment.id}>
                 <Comment>
                     <Comment.Avatar src={comment.user.image} />
+                    {' '}
                     <Comment.Content>
-                        <Comment.Author as='a'><strong>{comment.user.username} says: </strong>
+                        <Comment.Author as='a'><strong>{comment.user.username} says: {' '}</strong>
                             <Comment.Text>  {comment.content}</Comment.Text>
 
                         </Comment.Author>
                         <Comment.Metadata>
-
+                            <div style={{ color: "grey" }}>date:{comment.created_at.slice(0, 10)}</div>
                         </Comment.Metadata>
 
                     </Comment.Content>

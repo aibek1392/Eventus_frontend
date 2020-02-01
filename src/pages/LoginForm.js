@@ -90,8 +90,8 @@ export default class LogIn extends React.Component {
             <input className="login_button" type="submit" />
           </form>
           <Button
-          style={{ backgroundColor: '#FF1493', color: "white"}}
-           variant="outline-danger" onClick={ this.onClickFunctionsSignUp }>Sign Up</Button>
+          style={{ color: "white"}}
+           variant="primary" onClick={ this.onClickFunctionsSignUp }>Sign Up</Button>
         </div>
         :
 			""

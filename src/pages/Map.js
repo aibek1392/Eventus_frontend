@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import '../Styling/LoginForm.css'
 import {
   GoogleMap,
   withScriptjs,
@@ -29,11 +31,6 @@ function Map(props) {
   }
 
   return (
-
-    // <div style={{ "height": "120", "width": "120" }}>
-    //   <div>
-    //     hgig 
-    //     </div>
 
     <GoogleMap
     
@@ -75,8 +72,8 @@ function Map(props) {
             <h2>{selectedEvent.name}</h2>
             {/* <img src={selectedEvent.image}/> */}
             <Card.Img variant="top" src={selectedEvent.image} />
-            <p>{selectedEvent.category}</p>
-            {/* <button onClick={() => props.handleClick(selectedEvent)}></button> */}
+            <strong><p>category:{selectedEvent.category}</p></strong>
+            <Link to="/showdetails"><button style={{textAlign: "center"}} className="login_button" onClick={() => props.mapSelectedEvent(selectedEvent)}>See details</button></Link>
           
           </div>
 

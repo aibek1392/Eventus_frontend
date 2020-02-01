@@ -27,7 +27,7 @@ class EventCreateForm extends React.Component {
         this.props.addEvent(this.state)
             .then((res) => res.json())
             .then((newEvent) => {
-
+                console.log(newEvent)
                 this.props.history.push('/events')
             })
     }
@@ -77,7 +77,7 @@ class EventCreateForm extends React.Component {
                 <Button
                     onClick={(e) => this.goBack(e)}
                     style={{
-                        width: '29%', color: 'black', marginLeft: '35%',
+                        width: '29%', color: 'black', marginLeft: '15%',
                         justifyContent: "center"
                     }}
                     size='lg'

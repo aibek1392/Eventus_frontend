@@ -19,33 +19,33 @@ export default class EventList extends Component {
 
     render() {
 
-        
-        const searchedEvent = this.props.events.filter(searchedEvent =>  searchedEvent.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
-        const eventList = searchedEvent.map(event => {  
-            return <Event 
-                  showDetailsaboutEvent={this.props.showDetailsaboutEvent}   
-                  addToFavorites={this.props.addToFavorites} 
-                  key={event.id} 
-                  event={event} />
+        const searchedEvent = this.props.events.filter(searchedEvent => searchedEvent.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+
+        const eventList = searchedEvent.map(event => {
+            return <Event
+                showDetailsaboutEvent={this.props.showDetailsaboutEvent}
+                addToFavorites={this.props.addToFavorites}
+                key={event.id}
+                event={event} />
         })
-        
+
 
         return (
             <div>
-                 <label style={{marginLeft: "8.5%", color: "white"}}>
-                        <input 
-                        value={this.state.searchTerm} 
+                <label style={{ marginLeft: "8.5%", color: "white" }}>
+                    <input
+                        value={this.state.searchTerm}
                         placeholder="...search by name"
-                        onChange={this.handleChange}  type="search"/>
+                        onChange={this.handleChange} type="search" />
                 </label>
-                
-              
-            <div className="container">
-                <div className="row">
-                {eventList}
+
+
+                <div className="container">
+                    <div className="row">
+                        {eventList}
+                    </div>
                 </div>
-            </div>
             </div>
         )
     }

@@ -68,7 +68,7 @@ export default class SignupForm extends React.Component {
 
 		return (
 			<div className="signup_wrapper">
-				<h2 >Sign Up</h2>
+				<h2 style={{fontWeight: "bold"}}>Sign Up</h2>
 				<form onSubmit={this.onSubmitFunction}>
 					<label htmlFor='sign_up_username'>Username</label>
 					<input id="sign_up_username"
