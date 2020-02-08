@@ -13,13 +13,10 @@ export default class EditProfile extends Component {
         errors: []
     }
 
-
-
     componentDidMount() {
         fetch(`http://localhost:3001/users/${this.props.userID}`)
             .then(r => r.json())
             .then(resObj => {
-                console.log(resObj)
                 this.setState({
                     username: resObj.username,
                     password: resObj.password,
@@ -29,17 +26,11 @@ export default class EditProfile extends Component {
             })
     }
 
-
     onChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
-
-    
-
-
-
 
     submitClick = event => {
         event.preventDefault()
@@ -76,15 +67,12 @@ export default class EditProfile extends Component {
             })
     }
 
-
     componentWillUnmount() {
         this.setState({
             username: "",
             password: ""
         })
     }
-
-
 
     render() {
         return (

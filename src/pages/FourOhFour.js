@@ -6,9 +6,6 @@ const FourOhFour = (props) => {
         e.preventDefault()
         props.history.goBack()
     }
-
-
-
     return (
         <React.Fragment>
             <center>

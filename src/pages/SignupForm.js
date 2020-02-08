@@ -26,14 +26,10 @@ export default class SignupForm extends React.Component {
 		})
 	}
 
-
 	onSubmitFunction = (event) => {
 		event.preventDefault()
-		// console.log(event)
 		this.onClickFunctionsSubmitSignUp(event)
 		this.props.history.push('/events')
-		// this.props.updateCart()
-		// this.props.displayItems()
 	}
 
 	onClickFunctionsSubmitSignUp = (event) => {
@@ -57,8 +53,6 @@ export default class SignupForm extends React.Component {
 					alert(res_obj.errors)
 					this.props.history.push('/signup')
 				} else {
-					// this.props.displayItems()
-					// this.props.history.push('/events')
 					this.props.setToken(res_obj)
 				}
 			})
@@ -68,7 +62,7 @@ export default class SignupForm extends React.Component {
 
 		return (
 			<div className="signup_wrapper">
-				<h2 style={{fontWeight: "bold"}}>Sign Up</h2>
+				<h2 style={{ fontWeight: "bold" }}>Sign Up</h2>
 				<form onSubmit={this.onSubmitFunction}>
 					<label htmlFor='sign_up_username'>Username</label>
 					<input id="sign_up_username"
@@ -103,7 +97,5 @@ export default class SignupForm extends React.Component {
 				<Button variant="outline-primary" onClick={this.goBack}>goBack</Button>
 			</div>
 		)
-
 	}
-
 }

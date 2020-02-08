@@ -20,9 +20,7 @@ function Map(props) {
       .then(events => {
         console.log(events)
         setEvent(events);
-        // debugger;
       });
-
   }, []);
 
   const mapOnClick = (event) => {
@@ -31,57 +29,38 @@ function Map(props) {
   }
 
   return (
-
     <GoogleMap
-    
-      // style={{ height: '100vh', width: '100%' }}
-      // width="120" 
-      // height="120"
-
       defaultZoom={7}
       defaultCenter={{ lat: 39, lng: -106 }}
     >
-      
-      
-
-      {events.map(event => (
-        <Marker
-          onClick={() => mapOnClick(event)}
-          key={event.id}
-          position={{
-            lat: parseFloat(event.latitude),
-            lng: parseFloat(event.longitude)
-          }}
-
-        />
-      )
-      )}
-
-      {selectedEvent && (
-        < InfoWindow
-
-          position={{
-            lat: parseFloat(selectedEvent.latitude),
-            lng: parseFloat(selectedEvent.longitude)
-          }}
-          onCloseClick={() => setSelectedEvent(null)}
-        >
-          
-          <div className="container mx-auto" style={{ width: '20rem' }} >
-            
-            <h2>{selectedEvent.name}</h2>
-            {/* <img src={selectedEvent.image}/> */}
-            <Card.Img variant="top" src={selectedEvent.image} />
-            <strong><p>category:{selectedEvent.category}</p></strong>
-            <Link to="/showdetails"><button style={{textAlign: "center"}} className="login_button" onClick={() => props.mapSelectedEvent(selectedEvent)}>See details</button></Link>
-          
-          </div>
-
-        </InfoWindow>
-      )}
-
+            {events.map(event => (
+              <Marker
+                onClick={() => mapOnClick(event)}
+                key={event.id}
+                position={{
+                  lat: parseFloat(event.latitude),
+                  lng: parseFloat(event.longitude)
+                }}
+              />
+            )
+            )}
+            {selectedEvent && (
+              < InfoWindow
+                position={{
+                  lat: parseFloat(selectedEvent.latitude),
+                  lng: parseFloat(selectedEvent.longitude)
+                }}
+                onCloseClick={() => setSelectedEvent(null)}
+              >
+                <div className="container mx-auto" style={{ width: '20rem' }} >
+                  <h2>{selectedEvent.name}</h2>
+                  <Card.Img variant="top" src={selectedEvent.image} />
+                  <strong><p>category:{selectedEvent.category}</p></strong>
+                  <Link to="/showdetails"><button style={{ textAlign: "center" }} className="login_button" onClick={() => props.mapSelectedEvent(selectedEvent)}>See details</button></Link>
+                </div>
+              </InfoWindow>
+            )}
     </GoogleMap>
-    // </div>
   );
 }
 

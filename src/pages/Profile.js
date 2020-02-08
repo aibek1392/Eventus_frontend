@@ -3,6 +3,7 @@ import '../Styling/Profile.css'
 import { NavLink } from 'react-router-dom'
 
 export default class Profile extends Component {
+
     state = {
         currentUser: {}
     }
@@ -20,9 +21,6 @@ export default class Profile extends Component {
             })
     }
 
-
-
-
     render() {
         const user = this.state.currentUser
         return (
@@ -30,16 +28,12 @@ export default class Profile extends Component {
                 <center>
                     <h1 style={{ marginTop: "90px", color: "#f1e3f1", fontFamily: "Emilys Candy" }}>Profile</h1>
                     <img style={{ width: "18%", height: "20%", boxShadow: "white" }} src={user.image} ></img>
-
-
-
                     <h2 style={{ color: "#f1e3f1", marginTop: "30px" }}><b>username: {user.username}</b></h2>
                     <h2 style={{ color: "#f1e3f1" }}><b>Location: {user.location}</b></h2>
-                    
-                    <br/>
+                    <br />
                     <div>
-                    <NavLink exact to="/myprofile/edit">Edit Profile</NavLink>
-                </div>
+                        <NavLink exact to="/myprofile/edit">Edit Profile</NavLink>
+                    </div>
                 </center>
             </div>
         )

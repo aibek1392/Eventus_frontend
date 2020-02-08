@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropdownButton, Dropdown, Form, Col } from 'react-bootstrap'
+import {  Form, Col } from 'react-bootstrap'
 
 
 const SearchBar = (props) => {
@@ -11,26 +11,19 @@ const SearchBar = (props) => {
     }
   })
 
- 
   return (
     <div>
-
-
       <br />
-
-
       <label>
-
         <Form.Group as={Col} controlId="formGridState">
           <Form.Label style={{ color: "white" }}>Filter by category</Form.Label> {' '}
-          <select onChange={(event) => props.stateChangeFilter(event.target.value)}
-            value={props.term}>
-            <option value="All">All</option>
-            {newStates}
-          </select>
+            <select onChange={(event) => props.stateChangeFilter(event.target.value)}
+              value={props.term}>
+              <option value="All">All</option>
+              {newStates}
+            </select>
         </Form.Group>
       </label>
-
     </div>
   );
 }

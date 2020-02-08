@@ -11,13 +11,10 @@ import FavoriteEventList from './containers/FavoriteEventList'
 import { WrappedMap } from './pages/Map'
 import ShowDetailsPage from './pages/ShowDetailsPage'
 import EditProfile from './pages/EditProfile'
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { NavLink } from 'react-bootstrap';
 
-
 class App extends React.Component {
-
 
   state = {
     token: localStorage.token,
@@ -28,35 +25,23 @@ class App extends React.Component {
     favoriteEvents: []
   }
 
-  
   newUser = (data) => {
-   this.setState({
-     username: data
-     
-   })
-   localStorage.username = data
+    this.setState({
+      username: data
+    })
+    localStorage.username = data
   }
-  
-
-
 
   setToken = ({ token, user_id, username }) => {
     localStorage.token = token
     localStorage.userId = user_id
-    localStorage.username = username
-
+    localStorage.username = username  
     this.setState({
       token: token,
       loggedInUserId: user_id,
       username: username
     })
   }
-
-  //   componentDidMount(){
-  // fetch("https://app.ticketmaster.com/discovery/v2/events.json?apikey=r7qtrGxNYlU9gXJwaNwTHLuk6NJQa1RR&size=200")
-  //   .then(r=>r.json())
-  //   .then(r=> console.log(r))
-  //   }
 
   logOut = () => {
     localStorage.clear()
@@ -67,10 +52,6 @@ class App extends React.Component {
       username: null
     })
   }
-
-
-
-
 
   addToFavorites = (event) => {
     const match = this.state.favoriteEvents.find(joiner => joiner.event.id === event.id)
@@ -87,7 +68,6 @@ class App extends React.Component {
       })
         .then(r => r.json())
         .then(r_json => {
-          
           alert("Event has been added ✅")
           this.setState({
             favoriteEvents: [...this.state.favoriteEvents, r_json]
@@ -99,10 +79,6 @@ class App extends React.Component {
     }
   }
 
-
-
-
-
   setFavoriteEvents = (arr) => {
     this.setState({
       favoriteEvents: arr
@@ -110,15 +86,12 @@ class App extends React.Component {
   }
 
   showDetailsaboutEvent = (event) => {
-   
     this.setState({
       singleEventDetail: event
     })
   }
 
-
   removeFromFavorite = (favorite) => {
-    console.log(favorite.id)
     fetch(`http://localhost:3001/favorite_events/${favorite.id}`, {
       method: "DELETE"
     })
@@ -142,18 +115,13 @@ class App extends React.Component {
     })
   }
 
-
-
   goBackToEvents = () => {
-    // e.preventDefault()
-    console.log('hello')
-    if (this.state.singleEventDetail){
+    if (this.state.singleEventDetail) {
       this.props.history.goBack()
       this.setState({
         singleEventDetail: null
       })
     }
-
   }
 
   slugUrl = eventName => {
@@ -171,35 +139,32 @@ class App extends React.Component {
         user_id: this.state.loggedInUserId
       })
     })
-
   }
-
-  
 
   render() {
     return (
       <div>
-          <Header goEvents={this.goEvents} logOut={this.logOut} token={this.state.token} username={this.state.username} goBack={this.goBack} />
-          <Switch>
+        <Header goEvents={this.goEvents} logOut={this.logOut} token={this.state.token} username={this.state.username} goBack={this.goBack} />
+        <Switch>
           <Route exact path={'/'} render={(props) => <LoginForm {...props} setToken={this.setToken} />} />
           <Route exact path={'/signup'} component={(props) => <SignupForm {...props} setToken={this.setToken} />} />
           <Route exact path={'/events'} render={(props) => <EventContainer {...props} showDetailsaboutEvent={this.showDetailsaboutEvent} addToFavorites={this.addToFavorites} />} />
           <Route exact path={'/eventcreate'} render={(props) => <EventCreateForm addEvent={this.addEvent} {...props} />} />
           <Route exact path={'/profile'} render={(props) => <Profile {...props} username={this.state.username} userID={this.state.loggedInUserId} />} />
-          <Route exact path={'/favoritevents'} render={(props) => <FavoriteEventList removeFromFavorite={this.removeFromFavorite} {...props} user={this.state.loggedInUserId} setFavoriteEvents={this.setFavoriteEvents} favoriteEvents={this.state.favoriteEvents} />} />
+          <Route exact path={'/favoritevents'} render={(props) => <FavoriteEventList removeFromFavorite={this.removeFromFavorite} {...props} user={this.state.loggedInUserId} setFavoriteEvents={this.setFavoriteEvents} showDetailsaboutEvent={this.showDetailsaboutEvent} favoriteEvents={this.state.favoriteEvents} />} />
           <Route exact path="/myprofile/edit" render={(props) => <EditProfile newUser={this.newUser} {...props} userID={this.state.loggedInUserId} />} />
-            <Route path='/showdetails/:name'>
-              {this.state.singleEventDetail && (
-                <ShowDetailsPage
-                  addToFavorites={this.addToFavorites}
-                  userID={this.state.loggedInUserId}
-                  username={this.state.username}
-                  user={this.state.loggedInUserId}
-                  singleEventDetail={this.state.singleEventDetail}
-                  goBackToEvents={this.goBackToEvents}
-                />
-              )}
-            </Route>
+          <Route path='/showdetails/:name'>
+            {this.state.singleEventDetail && (
+              <ShowDetailsPage
+                addToFavorites={this.addToFavorites}
+                userID={this.state.loggedInUserId}
+                username={this.state.username}
+                user={this.state.loggedInUserId}
+                singleEventDetail={this.state.singleEventDetail}
+                goBackToEvents={this.goBackToEvents}
+              />
+            )}
+          </Route>
           <div style={{ width: '100vw', height: '70vw' }}>
             <Route exact path={'/map'} render={(props) => <WrappedMap {...props}
               googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAPS_KEY}`}
@@ -209,21 +174,18 @@ class App extends React.Component {
               mapElement={<div style={{ height: '100%' }} />} />} />
             <Route exact path={'/404'} component={FourOhFour} />
           </div>
-          
         </Switch>
-        
-              {this.state.singleEventDetail ? (
-                <Redirect to={`/showdetails/${this.slugUrl(this.state.singleEventDetail.name)}`} />
-              ) : (
-                this.goBackToEvents()
-                )}
-              {this.state.token ? "" : <Redirect to='/' />}
-      }
 
+        {this.state.singleEventDetail ? (
+          <Redirect to={`/showdetails/${this.slugUrl(this.state.singleEventDetail.name)}`} />
+        ) : (
+            this.goBackToEvents()
+          )}
+        {this.state.token ? "" : <Redirect to='/' />}
+        }
       </div>
     );
   }
 }
-
 
 export default withRouter(App);

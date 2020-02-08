@@ -5,6 +5,15 @@ Web application to create and show existing social events on map.
 A full stack React.js and Ruby on Rails web application was built to them who don't want miss important social events and have conversation with other users in real-time without refreshing the page. 
 
 
+<p align="center"><img width=75% src="https://github.com/aibek1392/Eventus_frontend/blob/master/src/images/Screen%20Shot%202020-01-31%20at%2010.59.01%20PM.png?raw=true"></p>
+
+<p align="center"><img width=75% src="https://github.com/aibek1392/Eventus_frontend/blob/master/src/images/Screen%20Shot%202020-01-31%20at%2010.59.13%20PM.png?raw=true"></p>
+
+<p align="center"><img width=75% src="https://github.com/aibek1392/Eventus_frontend/blob/master/src/images/Screen%20Shot%202020-01-31%20at%2010.59.39%20PM.png?raw=true"></p>
+
+<p align="center"><img width=75% src="https://github.com/aibek1392/Eventus_frontend/blob/master/src/images/Screen%20Shot%202020-01-31%20at%2011.06.05%20PM.png?raw=true"></p>
+
+
 ## Features
 
 Events can be filtered by category and searched by name.  User simply can create and explore other events in US. User can save other people events as favorite. 
@@ -58,7 +67,6 @@ TicketMaster API keys you can get -> [here] (`https://developer.ticketmaster.com
 
 
 ## Installing
-Backend Installation, please click [here](https://github.com/Gulnoz/EventsOnMapBackend)
 
 Frontend Installation:
 

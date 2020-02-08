@@ -16,45 +16,39 @@
 }
 
 .item_list {
-  justify-content: flex-start;
+  justify-content: space-evenly;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: stretch;
-  align-content: flex-start;
-  padding-bottom: 70%; 
-   margin-left: 70px;
-  border-radius: 60px;
 }
 
 .drop_down {
-    width: 20px;
+  width: 20px;
  overflow: hidden;
  border: 1px dotted black;
 }
- /* .item_card h1 {
-	text-align: center;
-  font-size: 10pt;
+
+.item_card {
+  height: 80%;
   display: flex;
-}  */
-
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 300px;
+  padding: 5px;
+  margin: 5px;
+  height: 100%;
+  position: relative;
+  font-size: 10pt;
+}
 .item_card:not(:first-child) {
- 
-  height: 5px;
-  margin-left: 60px;
   justify-content: center;
-  
-
 }
 .item_card:hover {
-  box-shadow: -1rem 0 3rem rgb(2, 8, 88);
-
   transform: translateY(-10px);
   transition: 0.5s ease-out;
-  /* margin:  9px; */
   justify-content: center;
-
 }
+
 .item_card:hover ~ .card {
   position: relative;
   left: 100px;
@@ -107,30 +101,14 @@
   stroke-dashoffset: 360;
   transition: 0.6s ease-out;
 }
-/* svg {
-  fill: #17141d;
-  stroke-width: 2px;
-} */
-/* .item_card:hover .stroke {
-  stroke-dashoffset: 100;
-  transition: 0.6s ease-out;
-} */
 
 .event-coments {
   position: fixed;
-  /* top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto; */
-  /* margin-right: -50%; */
-  /* transform: translate(-20%, -20%); */
-  /* text-align: center; */
   width: 10%;
   height: 10%;
   /* padding-top: 1%; */
   border: 2px solid #112D4E;
   background-color: #F9F7F7;
-
 }
 
 .col-sm-4.py-2.px-2 {
@@ -139,7 +117,6 @@ height: 80%;
 }
 
 .scroll-list {
-
   overflow-y: scroll;
 }
 
