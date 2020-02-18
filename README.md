@@ -16,7 +16,7 @@ A full stack React.js and Ruby on Rails web application was built to them who do
 
 ## Features
 
-Events can be filtered by category and searched by name.  User simply can create and explore other events in US. User can save other people events as favorite. 
+Events can be filtered by category and searched by name.  User simply can create and explore other events in US. User can save other people events as favorite. Also user can have live chat with other users through chat box on event they are interested in.
 
 ## Built with
 
